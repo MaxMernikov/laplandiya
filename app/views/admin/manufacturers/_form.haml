@@ -1,0 +1,6 @@
+.form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+
+= collection_check_boxes :manufacturer, :composition_ids, Composition.all, :id, :title do |b|
+  .checkbox= b.label { b.check_box(class: 'checkbox') + b.text  }

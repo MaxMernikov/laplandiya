@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    models:
+      composition: 'Составы'
+      manufacturer: 'Производители'
+      weight: 'Веса составов'
+
+    attributes:
+      composition:
+        title: 'Название'
+        code: 'Код состава'
+      manufacturer:
+        title: 'Название'
+      weight:
+        title: 'Название'
+        weight: 'Вес'
+        code: 'Код веса'

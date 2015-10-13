@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: site_name
+  username: postgres
+  password: postgres
+
+staging:
+  <<: *default
+  database: site_name
+  username: site_name
+  password: site_name
+
+production:
+  <<: *default
+  database: site_name
+  username: site_name
+  password: efb3bd5daa91cb5809d799c4309e134e

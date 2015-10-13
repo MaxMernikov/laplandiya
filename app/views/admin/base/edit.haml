@@ -1,0 +1,6 @@
+.page-header.text-center
+  %h1
+    "#{I18n.t("activerecord.models.#{resource.class.to_s.downcase}")}"
+    редактировать
+.col-xs-6.col-xs-offset-3
+  = render 'form_partial'
