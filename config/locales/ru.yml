@@ -4,14 +4,22 @@ ru:
       composition: 'Составы'
       manufacturer: 'Производители'
       weight: 'Веса составов'
+      packing: 'Упаковка'
+      sweetscategory: 'Категории конфет'
 
     attributes:
       composition:
         title: 'Название'
-        code: 'Код состава'
+        code: 'Код'
       manufacturer:
         title: 'Название'
       weight:
         title: 'Название'
         weight: 'Вес'
-        code: 'Код веса'
+        code: 'Код'
+      packing:
+        code: 'Код'
+        image: 'Изображение'
+        show: 'Отображать на сайте'
+      sweets_category:
+        title: 'Название'

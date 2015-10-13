@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012193112) do
+ActiveRecord::Schema.define(version: 20151013205021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,30 @@ ActiveRecord::Schema.define(version: 20151012193112) do
   add_index "compositions_manufacturers", ["manufacturer_id"], name: "index_compositions_manufacturers_on_manufacturer_id", using: :btree
 
   create_table "manufacturers", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packings", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "show",               default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  create_table "packings_weights", force: :cascade do |t|
+    t.integer  "packing_id"
+    t.integer  "weight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sweets_categories", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

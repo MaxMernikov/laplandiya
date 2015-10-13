@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :compositions, except: [:new, :create, :destroy]
     resources :manufacturers
     resources :weights
-
+    resources :packings
+    resources :sweets_categories
   end
 
   post '/init' => 'conf#init'# erase_me

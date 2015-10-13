@@ -21,6 +21,7 @@ gem 'bootstrap-sass'
 
 gem 'enumerate_it' #Enumerate model
 gem 'inherited_resources' #slim controllers
+gem 'paperclip'
 # gem 'russian'
 
 group :development, :test do
