@@ -6,6 +6,7 @@ ru:
       weight: 'Веса составов'
       packing: 'Упаковка'
       sweetscategory: 'Категории конфет'
+      sweet: 'Конфеты'
 
     attributes:
       composition:
@@ -23,3 +24,8 @@ ru:
         show: 'Отображать на сайте'
       sweets_category:
         title: 'Название'
+      sweet:
+        title: 'Название'
+        image: 'Изображение'
+        manufacturer: 'Производитель'
+        sweets_category_id: 'Категория конфеты'

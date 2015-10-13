@@ -1,4 +1,5 @@
-= form_for [:admin, resource] do |f|
+- url = parent.present? ? [:admin, parent, resource] : [:admin, resource]
+= form_for url do |f|
   - if resource.errors.any?
     = render 'errors', errors: resource.errors
   = render 'form', f: f

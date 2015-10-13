@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   namespace 'admin' do
     root 'dashboards#index'
     resources :compositions, except: [:new, :create, :destroy]
-    resources :manufacturers
+    resources :manufacturers do
+      resources :sweets
+    end
     resources :weights
     resources :packings
     resources :sweets_categories

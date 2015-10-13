@@ -13,8 +13,9 @@
           %li{ class: active_menu('admin/compositions', 'index') }
             = link_to I18n.t('activerecord.models.composition'), admin_compositions_path
 
-          %li{ class: active_menu('admin/manufacturers', 'index') }
-            = link_to I18n.t('activerecord.models.manufacturer'), admin_manufacturers_path
+          %li{ class: active_menu(['admin/manufacturers', 'admin/sweets']) }
+            = link_to admin_manufacturers_path do
+              #{ I18n.t('activerecord.models.manufacturer') } / #{ I18n.t('activerecord.models.sweet') }
 
           %li{ class: active_menu('admin/weights') }
             = link_to I18n.t('activerecord.models.weight'), admin_weights_path
@@ -22,7 +23,7 @@
           %li{ class: active_menu('admin/packings') }
             = link_to I18n.t('activerecord.models.packing'), admin_packings_path
 
-          %li{ class: active_menu('admin/sweets_categories') }
+          %li{ class: active_menu('admin/sweets_categories', 'index') }
             = link_to I18n.t('activerecord.models.sweetscategory'), admin_sweets_categories_path
 
 

@@ -15,5 +15,6 @@
           %td= col.title
           %td
             .pull-right.controls
+              = link_to 'конфеты', admin_manufacturer_sweets_path(col), class: 'btn btn-default'
               = link_to 'edit', edit_resource_url(col), class: 'btn btn-default'
               = link_to 'delete', resource_url(col), method: :delete, class: 'btn btn-default'
