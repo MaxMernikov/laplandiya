@@ -1,0 +1,23 @@
+.page-header
+  %h1
+    = I18n.t('activerecord.models.kit')
+
+- if collection.present?
+  %table.table
+    %thead
+      %tr
+        %th
+        - @compositions.each do |composition|
+          %th.text-center= composition.title
+    %tbody
+      - @weights.each do |weight|
+        %tr
+          %td= weight.title
+          - @compositions.each do |composition|
+            - kit = collection.find_by(composition: composition, weight: weight)
+            %td.text-center{ style: "opacity: #{kit.show ? 1 : 0.5}" }
+              = kit.kits_sweets.pluck(:count).sum
+              = I18n.t(:sweet, count: kit.kits_sweets.pluck(:count).sum)
+              %br
+              = link_to 'edit', edit_resource_url(kit), class: 'btn btn-default'
+

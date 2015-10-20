@@ -1,0 +1,15 @@
+- if resource.field_type == 'text'
+  .form-group
+    = f.label :value
+    = f.text_area :value, class: 'form-control', rows: 5
+
+- elsif resource.field_type == 'array'
+  .form-group
+    = f.label :value
+    %p.alert.alert-warning Это поле подразумевает список значений. В качестве разделителя используйте запятую (напр.: яблоко, малина)
+    = f.text_area :value, class: 'form-control', rows: 5
+
+- else
+  .form-group
+    = f.label :value
+    = f.text_field :value, class: 'form-control'

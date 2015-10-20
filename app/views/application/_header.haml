@@ -1,0 +1,38 @@
+%header
+  .container.-pseudo
+    .row
+      .col-xs-4
+        - if custom?('get_call')
+          = link_to '#', class: 'get-call' do
+            %i.is.icons-get-call
+            %span.text-get-call= custom('get_call')
+      .col-xs-4.text-center
+        .logo
+          %i.is.icons-logo
+          
+      .col-xs-4.text-right
+        .phones-block
+          .block-wrap
+            - if custom?('velcom_phone')
+              .phones-block-item
+                %i.is.icons-velcom-logo
+                = custom('velcom_phone')
+
+            - if custom?('mts_phone')
+              .phones-block-item
+                %i.is.icons-mts-logo
+                = custom('mts_phone')
+
+            - if custom?('phone')
+              .phones-block-item
+                %i.is.icons-phone-logo
+                = custom('phone')
+
+        - if custom?('work_time')
+          .work-time-block
+            .block-wrap
+              = custom('work_time')
+              - if custom?('work_days')
+                .days
+                  - custom('work_days').each do |day|
+                    .day= day

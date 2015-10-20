@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 
 # back-end
 gem 'awesome_print'
@@ -22,7 +23,7 @@ gem 'bootstrap-sass'
 gem 'enumerate_it' #Enumerate model
 gem 'inherited_resources' #slim controllers
 gem 'paperclip'
-# gem 'russian'
+gem 'russian'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

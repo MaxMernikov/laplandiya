@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#index'
+  root 'pages#langing'
+  # root 'pages#index'
+  namespace :pages, path: '' do
+    get :delivery
+  end
+
   namespace 'admin' do
     root 'dashboards#index'
     resources :compositions, except: [:new, :create, :destroy]
@@ -17,6 +22,8 @@ Rails.application.routes.draw do
     resources :weights
     resources :packings
     resources :sweets_categories
+    resources :custom_fields, except: [:destroy]
+    resources :kits, only: [:index, :edit, :update]
   end
 
   post '/init' => 'conf#init'# erase_me

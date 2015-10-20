@@ -1,0 +1,48 @@
+- Sweet.where(manufacturer_id: resource.composition.manufacturer_ids).each do |sweet|
+  - f.object.kits_sweets.find_or_initialize_by(sweet_id: sweet.id)
+
+.form-group
+  = f.label :composition_id
+  = f.text_field :composition_id, value: resource.composition.title, class: 'form-control', disabled: true
+
+.form-group
+  = f.label :weight_id
+  = f.text_field :weight_id, value: resource.weight.title, class: 'form-control', disabled: true
+
+.alert.alert-warning
+  .checkbox
+    = f.label :show do
+      = f.check_box :show
+      Отображать на сайте
+
+
+.sort#manufacturer_sort.hide{ data: {sort: 'manufacturer'} } Сортировка по производителю
+
+#Container
+  = f.fields_for :kits_sweets do |s|
+    .mix.col-xs-3.thumbnail{ data: { manufacturer: s.object.sweet.manufacturer_id } }
+      .col-xs-12.text-center
+        = s.object.sweet.title
+        %br
+        %small
+          = s.object.sweet.sweets_category.title
+          \-
+          = s.object.sweet.manufacturer.title
+
+        %br
+        %br
+
+        = s.hidden_field :sweet_id
+        = s.hidden_field :id
+        = image_tag(s.object.sweet.image, height: 200)
+
+      .col-xs-9
+        = s.text_field :count, class: 'form-control'
+      .col-xs-3.form-inline
+        .form-group
+          .checkbox
+            = s.label :_destroy, 'удалить'
+            = s.check_box :_destroy
+      %br
+.row
+%hr

@@ -1,0 +1,16 @@
+.form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+
+.form-group
+  = f.label :sweets_category_id
+  = f.select :sweets_category_id, SweetsCategory.ordered.pluck(:title, :id), { include_blank: true }, class: 'form-control'
+
+.form-group
+  .row
+    .col-xs-8
+      = f.label :image
+      = f.file_field :image
+    .col-xs-4
+      - if f.object.image.present?
+        = image_tag f.object.image.url, class: 'pull-right img-responsive'

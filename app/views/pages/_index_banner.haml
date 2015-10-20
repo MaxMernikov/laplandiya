@@ -1,0 +1,18 @@
+.index-banner
+  %i.is.banner-bell
+  .visible-block
+    %i.is.banner-fir-tree
+    %i.is.banner-candies
+    - if custom?('banner_santa')
+      %i.is.banner-bals
+      %i.is.banner-santa
+        .action
+          %span= custom('banner_santa')
+
+    .banner-action
+      АКЦИЯ! 
+      %span ДО 29 СЕНТЯБРЯ
+      %br
+      СКИДКА
+      %span 10%
+      НА НАБОРЫ 3,5 КГ

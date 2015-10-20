@@ -1,0 +1,15 @@
+//asdfast font-family
+=font($alias, $name)
+  @font-face
+    font-family: $alias
+    src: font-url("fonts/" + $name + ".eot")
+    src: font-url("fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), font-url("fonts/" + $name + ".woff") format("woff"), font-url("fonts/" + $name + ".ttf") format("truetype")
+    font-weight: normal
+    font-style: normal
+
++font(century_gothic, CenturyGothic-Bold)
+
+=font-century_gothic
+  font-family: "century_gothic", arial,sans-serif
+=font-arial
+  font-family: "Arial"

@@ -1,4 +1,10 @@
 ru:
+  sweet:
+    few: конфеты
+    many: конфет
+    one: конфета
+    other: конфет
+
   activerecord:
     models:
       composition: 'Составы'
@@ -7,6 +13,8 @@ ru:
       packing: 'Упаковка'
       sweetscategory: 'Категории конфет'
       sweet: 'Конфеты'
+      customfield: 'Настраиваемые поля'
+      kit: 'Наборы конфет'
 
     attributes:
       composition:
@@ -29,3 +37,12 @@ ru:
         image: 'Изображение'
         manufacturer: 'Производитель'
         sweets_category_id: 'Категория конфеты'
+      custom_field:
+        title: 'Название поля'
+        value: 'Значение'
+        pos: 'Позиция'
+        field_type: 'Тип поля'
+      kit:
+        composition_id: 'Состав'
+        weight_id: 'Вес состава'
+

@@ -1,9 +1,12 @@
 %nav.navbar.navbar-default{ role: 'navigation' }
   #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    = link_to 'Laplandija', root_path, class: 'navbar-brand'
+    = link_to 'Laplandiya', root_path, class: 'navbar-brand'
     %ul.nav.navbar-nav
       %li{ class: active_menu('admin/dashboards', 'index') }
         = link_to 'Dashboard', admin_root_path
+
+      %li{ class: active_menu('admin/kits') }
+        = link_to I18n.t('activerecord.models.kit'), admin_kits_path
 
       %li.dropdown{ class: active_menu(['admin/compositions', 'admin/manufacturers', 'admin/weights']) }
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
@@ -26,6 +29,8 @@
           %li{ class: active_menu('admin/sweets_categories', 'index') }
             = link_to I18n.t('activerecord.models.sweetscategory'), admin_sweets_categories_path
 
+      %li{ class: active_menu('admin/custom_fields', 'index') }
+        = link_to I18n.t('activerecord.models.customfield'), admin_custom_fields_path
 
 
     %ul.nav.navbar-nav.navbar-right

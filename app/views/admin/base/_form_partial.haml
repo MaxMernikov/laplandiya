@@ -1,8 +1,11 @@
-- url = parent.present? ? [:admin, parent, resource] : [:admin, resource]
+- url = try(:parent) ? [:admin, parent, resource] : [:admin, resource]
 = form_for url do |f|
   - if resource.errors.any?
     = render 'errors', errors: resource.errors
-  = render 'form', f: f
+  - if params[:root]
+    = render 'form_root', f: f
+  - else
+    = render 'form', f: f
 
   .text-center
     = f.submit 'Сохранить', class: 'btn btn-primary'

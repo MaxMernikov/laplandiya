@@ -1,0 +1,17 @@
+.form-group
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+
+.form-group
+  = f.label :key
+  = f.text_field :key, class: 'form-control'
+
+= render 'form_value', f: f
+
+.form-group
+  = f.label :field_type
+  = f.select :field_type, CustomField::FIELD_TYPE, class: 'form-control'
+
+.form-group
+  = f.label :pos
+  = f.text_field :pos, class: 'form-control'  
