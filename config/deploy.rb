@@ -6,7 +6,7 @@ set :keep_releases, 3
 
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/ckeditor_assets}
 
-# set :linked_files, %w{config/database.yml config/aws.yml}
+set :linked_files, %w{config/database.yml}
 
 set :bundle_gemfile, -> { release_path.join('Gemfile') }
 set :bundle_dir, -> { shared_path.join('bundle') }

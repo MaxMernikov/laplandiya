@@ -19,3 +19,4 @@
 # Ignore paperclip files
 /public/sitemap.xml.gz
 /public/system/*
+/config/database.yml
