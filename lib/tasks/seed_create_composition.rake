@@ -1,5 +1,5 @@
-desc "Create Goods"
-task seed_create_goods: :environment do
+desc "Create Composition"
+task seed_create_compositions: :environment do
   Composition.destroy_all
 
   Composition.create([

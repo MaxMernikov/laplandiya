@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#langing'
-  # root 'pages#index'
+  if Rails.env.production?
+    root 'pages#langing'
+  else
+    root 'pages#index'
+  end
+
   namespace :pages, path: '' do
     get :delivery
   end

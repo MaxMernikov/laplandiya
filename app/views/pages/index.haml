@@ -6,3 +6,11 @@
         = link_to '#', class: "weight-menu-item #{'active' if index == 2}" do
           .title= weight.title
           .cost 200 - 350 т.
+
+
+.container
+  .row
+    - Composition.all.each do |composition|
+      .col-md-4.text-center
+        .composition-title= composition.title
+
