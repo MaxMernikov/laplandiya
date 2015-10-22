@@ -1,16 +1,21 @@
 %header
-  .container.-pseudo
+  .container
     .row
-      .col-xs-4
-        - if custom?('get_call')
-          = link_to '#', class: 'get-call' do
-            %i.is.icons-get-call
-            %span.text-get-call= custom('get_call')
-      .col-xs-4.text-center
-        .logo
+      .col-xs-3.col-sm-4
+        .visible-xs
+          \:)
+        .hidden-xs
+          - if custom?('get_call')
+            = link_to '#', class: 'get-call' do
+              %i.is.icons-get-call
+              %span.text-get-call= custom('get_call')
+      .col-xs-4.text-center.menu
+        = link_to 'Главная', root_path, class: 'menu-element left-side hidden-xs'
+        = link_to 'Оплата и доставка', root_path, class: 'menu-element left-side hidden-xs'
+        = link_to root_path, class: 'logo' do
           %i.is.icons-logo
           
-      .col-xs-4.text-right
+      .col-xs-5.col-sm-4.text-right
         .phones-block
           .block-wrap
             - if custom?('velcom_phone')
@@ -28,8 +33,9 @@
                 %i.is.icons-phone-logo
                 = custom('phone')
 
+        
         - if custom?('work_time')
-          .work-time-block
+          .work-time-block.hidden-xs.hidden-sm
             .block-wrap
               = custom('work_time')
               - if custom?('work_days')

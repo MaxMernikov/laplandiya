@@ -2,10 +2,10 @@
   %i.is.banner-bell
   .visible-block
     %i.is.banner-fir-tree
-    %i.is.banner-candies
+    = image_tag 'banner-candies.png', class: 'is banner-candies'
     - if custom?('banner_santa')
-      %i.is.banner-bals
-      %i.is.banner-santa
+      %i.is.banner-bals.visible-md.visible-lg
+      %i.is.banner-santa.visible-md.visible-lg
         .action
           %span= custom('banner_santa')
 

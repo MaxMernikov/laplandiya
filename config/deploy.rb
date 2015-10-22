@@ -1,4 +1,4 @@
-set :application, 'mastercard-lounge'
+set :application, 'laplandiya-by'
 set :repo_url, 'git@github.com:MaxMernikov/laplandiya.git'
 set :scm, :git
 set :ssh_options, { :forward_agent => true }

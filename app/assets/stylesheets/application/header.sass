@@ -15,7 +15,7 @@ header, footer
     margin-left: -96px
 
 
-.header
+header
   font-size: 11px
   .container
     &:after
@@ -28,6 +28,7 @@ header, footer
       position: absolute
       z-index: 1
 
+
   .phones-block
 
   .work-time-block
@@ -39,14 +40,65 @@ header, footer
     border: 2px solid white
     box-shadow: inset 1.7px 1.1px 9.3px 0.7px rgba(0, 0, 0, 0.3)
     border-radius: 6px
-    margin-top: 6px
+    margin-top: 9px
     .icons-get-call
-      margin: 3px 0px 4px 11px
+      margin: 3px 0px 4px 5px
     .text-get-call
       font-size: 12px
       line-height: 23px
       color: white
       text-decoration: none
-      padding-right: 11px
-      
+      padding-right: 5px
 
+@media (min-width: 992px)
+  header
+    .get-call
+      .icons-get-call
+        margin: 3px 0px 4px 11px
+      .text-get-call
+        padding-right: 11px
+
+
+.menu
+  display: table
+.menu-element
+  display: table-cell
+  width: 67px
+  color: white
+  font-family: 'CenturyGothicBold', sans-serif
+  font-size: 12px
+  font-weight: 400
+  line-height: 14px
+  vertical-align: middle
+  position: relative
+  // padding-top: 2px
+  height: 56px
+  &:hover, &.active
+    background-color: #910609
+    color: #fff
+
+  &:before
+    content: ''
+    top: 0
+    position: absolute
+    display: block
+    width: 1px
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.39)
+  &.left-side
+    left: -108px
+    &:before
+      border-left: 1px solid rgba(255, 255, 255, 0.16)
+
+@media (min-width: 992px)
+  .menu-element
+    width: 81px
+    &.left-side
+      left: -99px
+
+@media (min-width: 1200px)
+  .menu-element
+    &.left-side
+      left: -66px
+
+      

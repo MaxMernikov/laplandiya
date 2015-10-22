@@ -1,19 +1,18 @@
-# set :stage, :production
+set :production, :production
 
-# set :branch, 'master'
+set :branch, 'master'
 
-# set :deploy_to, ''
+set :deploy_to, '/home/webmaster/www/laplandiya.by/www/'
 
-# set :rails_env, 'production'
+set :rails_env, 'production'
 
 # set :ssh_options, {
 #   forward_agent: true,
 #   port: 22421
 # }
 
-# role :app, %w{}
-# role :web, %w{}
-# role :db, %w{}
+role :app, %w{webmaster@178.172.235.23}
+role :web, %w{webmaster@178.172.235.23}
+role :db, %w{webmaster@178.172.235.23}
 
-# server '', user: '', roles: %w{app web db}
-
+server '178.172.235.23', user: 'webmaster', roles: %w{app web db}
