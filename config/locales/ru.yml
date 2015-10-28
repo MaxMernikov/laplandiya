@@ -21,6 +21,7 @@ ru:
       sweet: 'Конфеты'
       customfield: 'Настраиваемые поля'
       kit: 'Наборы конфет'
+      opinion: 'Отзывы'
 
     attributes:
       composition:
@@ -51,4 +52,10 @@ ru:
       kit:
         composition_id: 'Состав'
         weight_id: 'Вес состава'
+      opinion:
+        user_name: 'Имя владельца отзыва'
+        opinion: 'Текст отзыва'
+        answer: 'Ответ на отзыв'
+        date: 'Дата отзыва'
+
 

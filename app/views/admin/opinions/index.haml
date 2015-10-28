@@ -1,0 +1,25 @@
+.page-header
+  %h1
+    = I18n.t('activerecord.models.opinion')
+    = link_to 'new', new_resource_url, class: 'btn btn-default pull-right'
+
+- if collection.present?
+  %table.table
+    %thead
+      %tr
+        %th= I18n.t('activerecord.attributes.opinion.user_name')
+        %th= I18n.t('activerecord.attributes.opinion.opinion')
+        %th= I18n.t('activerecord.attributes.opinion.answer')
+        %th= I18n.t('activerecord.attributes.opinion.date')
+        %th
+    %tbody
+      - collection.each do |col|
+        %tr
+          %td= col.user_name
+          %td= col.opinion
+          %td= col.answer
+          %td= col.date
+          %td
+            .pull-right.controls
+              = link_to 'edit', edit_resource_url(col), class: 'btn btn-default'
+              = link_to 'delete', resource_url(col), method: :delete, class: 'btn btn-default'

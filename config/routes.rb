@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :sweets_categories
     resources :custom_fields, except: [:destroy]
     resources :kits, only: [:index, :edit, :update]
+    resources :opinions, except: [:show]
   end
 
   post '/init' => 'conf#init'# erase_me

@@ -32,6 +32,8 @@
       %li{ class: active_menu('admin/custom_fields', 'index') }
         = link_to I18n.t('activerecord.models.customfield'), admin_custom_fields_path
 
+      %li{ class: active_menu('admin/opinions') }
+        = link_to I18n.t('activerecord.models.opinion'), admin_opinions_path
 
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown{ class: active_menu(['admin/settings']) }
