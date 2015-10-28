@@ -1,0 +1,54 @@
+.container.kit
+  .row
+    .col-md-6.text-right
+      .kit-image
+        = image_tag @packing.image, class: 'img-responsive'
+    .col-md-6
+      .row.kit-info
+        .col-md-6.title Вес подарка:
+        .col-md-6.body #{@kit.weight.weight} гр.
+
+      .row.kit-info
+        .col-md-6.title Упаковка:
+        .col-md-6.body микрогофрокартон с текстильными вставками.
+
+      .row.kit-info
+        .col-md-6.title Кол-во конфет:
+        - sweets_count = @kit.sweets_count
+        .col-md-6.body #{sweets_count} #{I18n.t(:count, count: sweets_count)}
+
+      - @compositions.each do |composition|
+        .row.composition-variant
+          .col-md-7
+            .col-md-3
+              %i.is.icons-radio-button
+            .col-md-9
+              “#{composition.title}”
+              %br
+              (№ 39421.а)
+          .col-md-5.cost
+            = composition.id
+            200 000 л
+
+= render 'title_line', text: 'СОСТАВ:'
+
+.container-fluid.kit-sweets
+  - 3.times.each do
+    .row.text-center
+      .col-md-12
+        .sweet-category-title
+          ШОКОЛАДНЫЕ КОНФЕТЫ:
+      .col-md-12
+        .row
+          - 5.times.each do |i|
+            .col-md-3.sweet-items
+              .col-md-6.sweet-image
+                = image_tag("fish-sweet-#{i+1}.png")
+                .sweet-count
+                  .count #{rand(10)}шт.
+                  %i.is.icons-sweets-count
+              .col-md-6.sweet-text
+                .title Батончик шоколадный
+                .manufacturer Коммунарка
+
+= render 'title_line', text: 'Как сделать заказ?'

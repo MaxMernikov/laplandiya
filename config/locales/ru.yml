@@ -5,6 +5,12 @@ ru:
     one: конфета
     other: конфет
 
+  count:
+    few: штуки
+    many: штук
+    one: штука
+    other: штук
+
   activerecord:
     models:
       composition: 'Составы'

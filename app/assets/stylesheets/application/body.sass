@@ -1,5 +1,6 @@
 body
-  background: #ebeeef
+  background-color: #cacdd5 !important
+  background-image: url(image_path('patterns/background-logo.png')), url(image_path('patterns/background-snow.png'))
 
 .no-padding
   padding: 0 !important
@@ -8,3 +9,14 @@ a
   &:hover, &:visited, &:focus
     text-decoration: none !important
 
+a:focus
+  outline: initial !important
+  outline-offset: initial !important
+
+.up-1
+  position: relative
+  z-index: 1
+
+.up-2
+  position: relative
+  z-index: 2

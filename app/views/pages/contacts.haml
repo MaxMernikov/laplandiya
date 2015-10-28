@@ -1,0 +1,48 @@
+= render 'index_banner'
+
+.contacts
+  .line
+  .container
+    .row
+      .col-md-6.col-md-offset-3.text-center
+        .title
+          Контакты и адрес:
+        - if custom?('velcom_phone')
+          .phones-block-item
+            %i.is.icons-velcom-logo-black
+            = custom('velcom_phone')
+
+        - if custom?('mts_phone')
+          .phones-block-item
+            %i.is.icons-mts-logo-black
+            = custom('mts_phone')
+
+        - if custom?('phone')
+          .phones-block-item
+            %i.is.icons-phone-logo-black
+            = custom('phone')
+
+        .address
+          %i.is.icons-marker
+          Республика Беларусь, г. Минск, ул. Селицкого, 19, 220075.
+
+  #map
+    = render 'map'
+
+  .container
+    .row
+      .col-md-12.text-center
+        .other-product-title
+          ВАС МОЖЕТ ЗАИНТЕРЕСОВАТЬ:
+      - 2.times do
+        - 3.times do |i|
+          .col-md-2
+            = link_to kit_path(Kit.last), class: 'composition-item' do
+              .composition-body.text-center
+                .composition-image
+                  = image_tag("fish-#{i+1}.png")
+                .composition-info
+                  .composition-code
+                    № 32978 а
+                  .composition-link-text
+                    ОТКРЫТЬ >

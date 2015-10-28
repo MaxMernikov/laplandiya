@@ -10,10 +10,13 @@
               %i.is.icons-get-call
               %span.text-get-call= custom('get_call')
       .col-xs-4.text-center.menu
-        / = link_to 'Главная', root_path, class: 'menu-element left-side hidden-xs'
-        / = link_to 'Оплата и доставка', root_path, class: 'menu-element left-side hidden-xs'
+        = link_to 'Главная', root_path, class: 'menu-element left-side hidden-xs'
+        = link_to 'Оплата и доставка', pages_delivery_path, class: 'menu-element left-side hidden-xs'
         = link_to root_path, class: 'logo' do
           %i.is.icons-logo
+        = link_to 'Контакты', pages_contacts_path, class: 'menu-element right-side hidden-xs'
+        = link_to 'Отзывы', opinions_path, class: 'menu-element right-side hidden-xs'
+
           
       .col-xs-5.col-sm-4.text-right
         .phones-block

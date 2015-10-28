@@ -1,16 +1,20 @@
 = render 'index_banner'
 .container-fluid
   .row
-    .col-md-12.weight-menu
+    .col-md-12.weight-menu.js-slideshow-control
       - @weights.each_with_index do |weight, index|
-        = link_to '#', class: "weight-menu-item #{'active' if index == 2}" do
+        = link_to '#', class: "weight-menu-item #{'active' if index == 2}", data: { slide: index } do
           .title= weight.title
           .cost 200 - 350 т.
 
 
-.container
-  .row
-    - Composition.all.each do |composition|
-      .col-md-4.text-center
-        .composition-title= composition.title
+.container{class: 'cycle-slideshow', data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false}}}
+  - @weights.each do |weight|
+    = render 'composition_block', weight: weight
 
+.container-fluid
+  .row
+    .col-md-12.brands
+      - 2.times do
+        - 4.times.each do |i|
+          = image_tag "fish-brands-#{i+1}.png"

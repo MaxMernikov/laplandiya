@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   namespace :pages, path: '' do
     get :delivery
+    get :contacts
   end
+
+  resources :opinions, only: [:create, :index]
+  resources :kits, only: [:show]
 
   namespace 'admin' do
     root 'dashboards#index'

@@ -17,7 +17,7 @@
             - kit = collection.find_by(composition: composition, weight: weight)
             %td.text-center{ style: "opacity: #{kit.show ? 1 : 0.5}" }
               = kit.kits_sweets.pluck(:count).sum
-              = I18n.t(:sweet, count: kit.kits_sweets.pluck(:count).sum)
+              = I18n.t(:sweet, count: kit.sweets_count)
               %br
               = link_to 'edit', edit_resource_url(kit), class: 'btn btn-default'
 

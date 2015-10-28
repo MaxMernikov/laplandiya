@@ -16,6 +16,7 @@ header, footer
 
 
 header
+  z-index: 1
   font-size: 11px
   .container
     &:after
@@ -73,7 +74,7 @@ header
   position: relative
   // padding-top: 2px
   height: 56px
-  &:hover, &.active
+  &:hover, &:focus, &.active
     background-color: #910609
     color: #fff
 
@@ -85,10 +86,17 @@ header
     width: 1px
     height: 100%
     background-color: rgba(0, 0, 0, 0.39)
+  &:after
   &.left-side
     left: -108px
     &:before
       border-left: 1px solid rgba(255, 255, 255, 0.16)
+  &.right-side
+    left: 61px
+    &:before
+      border-right: 1px solid rgba(255, 255, 255, 0.16)
+      right: 0
+
 
 @media (min-width: 992px)
   .menu-element

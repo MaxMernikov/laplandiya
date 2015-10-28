@@ -13,4 +13,8 @@ class Kit < ActiveRecord::Base
       end
     end
   end
+
+  def sweets_count
+    self.kits_sweets.pluck(:count).sum
+  end
 end
