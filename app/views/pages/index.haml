@@ -1,9 +1,9 @@
 = render 'index_banner'
 .container-fluid
   .row
-    .col-md-12.weight-menu.js-slideshow-control
+    .col-md-12.weight-menu
       - @weights.each_with_index do |weight, index|
-        = link_to '#', class: "weight-menu-item #{'active' if index == 2}", data: { slide: index } do
+        = link_to '#', class: "js-control weight-menu-item #{'active' if index == 2}", data: { slide: index } do
           .title= weight.title
           .cost 200 - 350 т.
 

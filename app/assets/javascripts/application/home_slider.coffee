@@ -1,8 +1,8 @@
 window.onload = ->
   $('.cycle-slideshow').cycle('pause')
-  $('.cycle-slideshow').cycle('goto', $('.weight-menu-item.active').data('slide'))
-  $('.js-slideshow-control a').click (e) ->
+  $('.cycle-slideshow').cycle('goto', $('.js-control.active').data('slide'))
+  $('.js-control').click (e) ->
     event.preventDefault()
-    $('.weight-menu-item.active').removeClass('active')
+    $('.js-control.active').removeClass('active')
     $(this).addClass('active')
     $('.cycle-slideshow').cycle('goto', $(this).data('slide'))
