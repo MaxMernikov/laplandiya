@@ -4,6 +4,7 @@ class Kit < ActiveRecord::Base
 
   has_many :kits_sweets, dependent: :destroy
   accepts_nested_attributes_for :kits_sweets, reject_if: lambda { |a| a[:count].to_i <= 0 || a[:count].blank? }, allow_destroy: true
+  has_many :sweets, through: :kits_sweets
 
 
   def self.create_kits

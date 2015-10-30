@@ -1,4 +1,4 @@
-.composition-block
+.container.composition-block
   .row.up-2
     - Composition.all.each do |composition|
       .col-xs-4.text-center
@@ -6,37 +6,41 @@
           .composition-title= composition.title
           .composition-cost 200 000 руб.
         .composition
-          / - 3.times do |i|
-          - weight.packings.each do |packing|
-            = link_to kit_path(Kit.last), class: 'composition-item' do
-              .composition-body
-                .composition-image
-                  = image_tag(packing.image(:preview))
-                .composition-info
-                  .composition-code
-                    № 32978 а
-                  .composition-link-text
-                    ОТКРЫТЬ >
+          - if composition.kits.find_by(weight_id: weight.id, show: true)
+            - weight.packings.each do |packing|
+              = link_to kit_path(Kit.last), class: 'composition-item' do
+                .composition-body
+                  .composition-image
+                    = image_tag(packing.image(:preview))
+                  .composition-info
+                    .composition-code
+                      № 32978 а
+                    .composition-link-text
+                      ОТКРЫТЬ >
   .row.up-1
     .col-md-12.text-center
       .composition-label
         .composition-label-text СОСТАВ:
 
   .row
-    - 3.times do
+    - Composition.all.each do |composition|
       .col-xs-4.text-center
-        .sweets
-          - 3.times.each do
-            .sweet-category-block
-              .sweet-category-title
-                ШОКОЛАДНЫЕ КОНФЕТЫ:
-              - 3.times.each do |i|
-                .row.sweet-items
-                  .col-md-6.sweet-image
-                    = image_tag("fish-sweet-#{i+1}.png")
-                    .sweet-count
-                      .count #{rand(10)}шт.
-                      %i.is.icons-sweets-count
-                  .col-md-6.sweet-text
-                    .title Батончик шоколадный
-                    .manufacturer Коммунарка
+        - kit = composition.kits.find_by(weight_id: weight.id, show: true)
+        - if kit
+          .sweets
+            - SweetsCategory.ordered.each do |category|
+              - sweets = kit.sweets.where(sweets_category_id: category.id)
+              - if sweets.present?
+                .sweet-category-block
+                  .sweet-category-title
+                    #{category.title}:
+                  - sweets.each do |sweet|
+                    .row.sweet-items
+                      .col-md-6.sweet-image
+                        = image_tag(sweet.image(:preview))
+                        .sweet-count
+                          .count #{ kit.kits_sweets.find_by(sweet_id: sweet.id).count }шт.
+                          %i.is.icons-sweets-count
+                      .col-md-6.sweet-text
+                        .title= sweet.title
+                        .manufacturer= sweet.manufacturer.title
