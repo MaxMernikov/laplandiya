@@ -12,9 +12,4 @@
   - @weights.each do |weight|
     = render 'composition_block', weight: weight
 
-.container-fluid
-  .row
-    .col-md-12.brands
-      - 2.times do
-        - 4.times.each do |i|
-          = image_tag "fish-brands-#{i+1}.png"
+= render 'brands'

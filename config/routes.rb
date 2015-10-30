@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     get :contacts
   end
 
-  resources :opinions, only: [:create, :index]
+  resources :opinions, only: [:index]
+  resources :feedbacks, only: [:create]
   resources :kits, only: [:show]
 
   namespace 'admin' do

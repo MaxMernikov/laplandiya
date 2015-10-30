@@ -1,7 +1,5 @@
 class OpinionsController < ApplicationController
   def index
-  end
-
-  def edit
+    @opinions = Opinion.ordered
   end
 end
