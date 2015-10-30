@@ -20,26 +20,22 @@
 
 #Container
   = f.fields_for :kits_sweets do |s|
-    .mix.col-xs-3.thumbnail{ data: { manufacturer: s.object.sweet.manufacturer_id } }
-      .col-xs-12.text-center
-        = s.object.sweet.title
-        %br
+    .mix.col-sm-3.thumbnail{ data: { manufacturer: s.object.sweet.manufacturer_id } }
+      .col-xs-12
+        .kits-title= s.object.sweet.title
         %small
           = s.object.sweet.sweets_category.title
           \-
           = s.object.sweet.manufacturer.title
 
         %br
-        %br
 
         = s.hidden_field :sweet_id
         = s.hidden_field :id
-        = image_tag(s.object.sweet.image, height: 200)
 
-      .col-xs-9
-        = s.text_field :count, class: 'form-control'
-      .col-xs-3.form-inline
-        .form-group
+        .form-group.kits-count
+          = s.text_field :count, class: 'form-control'
+        .form-group.kits-destroy
           .checkbox
             = s.label :_destroy, 'удалить'
             = s.check_box :_destroy

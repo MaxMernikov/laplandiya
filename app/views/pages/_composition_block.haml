@@ -6,11 +6,12 @@
           .composition-title= composition.title
           .composition-cost 200 000 руб.
         .composition
-          - 3.times do |i|
+          / - 3.times do |i|
+          - weight.packings.each do |packing|
             = link_to kit_path(Kit.last), class: 'composition-item' do
               .composition-body
                 .composition-image
-                  = image_tag("fish-#{i+1}.png")
+                  = image_tag(packing.image(:preview))
                 .composition-info
                   .composition-code
                     № 32978 а
