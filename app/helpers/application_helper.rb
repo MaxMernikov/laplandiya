@@ -16,4 +16,13 @@ module ApplicationHelper
     custom = CustomField.find_by(key: key)
     custom.present? && custom.value.present?
   end
+
+  def boolean_tag(value)
+    if value
+      'да'
+    elsif value == false
+      'нет'
+    end
+  end
+        
 end

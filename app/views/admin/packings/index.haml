@@ -15,7 +15,7 @@
       - collection.each do |col|
         %tr
           %td= col.code
-          %td= col.show
+          %td= boolean_tag col.show
           %td= image_tag(col.image, style: 'max-height: 200px')
           %td
             .pull-right.controls
