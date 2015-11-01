@@ -38,11 +38,11 @@
 
 .kit-sweets{class: 'cycle-slideshow', data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false}}}
   - @compositions.each do |composition|
-    - if composition.kits.find_by(weight_id: @weight.id, show: true)
-      привет макс
+    - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
+    - if kit
       .tr.container-fluid
         - SweetsCategory.ordered.each do |category|
-          - sweets = @kit.sweets.where(sweets_category_id: category.id)
+          - sweets = kit.sweets.where(sweets_category_id: category.id)
           - if sweets.present?
             = render 'sweets', category: category, sweets: sweets
       

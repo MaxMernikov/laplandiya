@@ -84,13 +84,27 @@ $icons-spacing: 10px
   a:hover
     >
       .icons-#{$name}
-        +icons-sprite(#{$name}-is-hover)
+        +icons-sprite(#{$name}-hover)
 
 =is_a($name)
-  .is-active
+  .active
     >
       .icons-#{$name}
-        +icons-sprite(#{$name}-is-active)
+        +icons-sprite(#{$name}-active)
+
+=is_c_h($class, $name)
+  .#{$class}:hover
+    .icons-#{$name}
+      +icons-sprite(#{$name}-hover)
+
+=is_c_a($class, $name)
+  .#{$class}.active
+    .icons-#{$name}
+      +icons-sprite(#{$name}-active)
+
++is_c_a('composition-variant', 'radio-button')
++is_c_h('composition-variant', 'radio-button')
+
 
 .is
   display: inline-block
