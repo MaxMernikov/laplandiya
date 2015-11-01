@@ -20,23 +20,31 @@
 
         
         - @compositions.each_with_index do |composition, index|
-          .row.composition-variant{class: "js-control #{'active' if index == 0}", data: { slide: index }}
-            .col-md-7
-              .col-md-3
-                %i.is.icons-radio-button
-              .col-md-9
-                “#{composition.title}”
-                %br
-                (№ 39421.а)
-            .col-md-5.cost
-              = composition.id
-              200 000 л
+          - if composition.kits.find_by(weight_id: @weight.id, show: true)
+            - code = Kit.gen_code(@composition, @weight, @packing)
+            .row.composition-variant{class: "js-control #{'active' if index == 0}", data: { slide: index }}
+              .col-md-7
+                .col-md-3
+                  %i.is.icons-radio-button
+                .col-md-9
+                  “#{composition.title}”
+                  %br
+                  (№ #{code})
+              .col-md-5.cost
+                = composition.id
+                200 000 л
 
 = render 'title_line', text: 'СОСТАВ:'
 
-.container-fluid.kit-sweets{class: 'cycle-slideshow', data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false}}}
-  - 3.times.each do |i|
-    = render 'sweets', ind: i
-    
+.kit-sweets{class: 'cycle-slideshow', data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false}}}
+  - @compositions.each do |composition|
+    - if composition.kits.find_by(weight_id: @weight.id, show: true)
+      привет макс
+      .tr.container-fluid
+        - SweetsCategory.ordered.each do |category|
+          - sweets = @kit.sweets.where(sweets_category_id: category.id)
+          - if sweets.present?
+            = render 'sweets', category: category, sweets: sweets
+      
 
 / = render 'title_line', text: 'Как сделать заказ?'

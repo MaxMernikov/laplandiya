@@ -2,17 +2,17 @@
   .row.text-center
     .col-md-12
       .sweet-category-title
-        ШОКОЛАДНЫЕ КОНФЕТЫ:
+        #{category.title}:
 
   .row
-    - 5.times.each do |i|
+    - sweets.each do |sweet|
       .col-md-3.sweet-items
         .row
           .col-md-6.sweet-image
-            = image_tag("fish-sweet-#{i+1}.png")
+            = image_tag(sweet.image(:preview))
             .sweet-count
-              .count #{rand(10)}шт.
+              .count #{ @kit.kits_sweets.find_by(sweet_id: sweet.id).count }шт.
               %i.is.icons-sweets-count
-          .col-md-6.sweet-text
-            .title Батончик шоколадный
-            .manufacturer Коммунарка
+          .col-md-6.sweet-text.text-center
+            .title= sweet.title
+            .manufacturer= sweet.manufacturer.title

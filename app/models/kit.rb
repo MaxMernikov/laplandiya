@@ -18,4 +18,16 @@ class Kit < ActiveRecord::Base
   def sweets_count
     self.kits_sweets.pluck(:count).sum
   end
+
+  def self.gen_code(composition, weight, packing)
+    "#{composition.code}#{weight.code.to_s.rjust(2, "0")}#{packing.code.to_s.rjust(3, "0")}"
+  end
+
+  def self.parse_code(code)
+    {
+      composition: Composition.find_by(code: code[0]),
+      weight: Weight.find_by(code: code[1..2].to_i),
+      packing: Packing.find_by(code: code[3..5].to_i)
+    }
+  end
 end

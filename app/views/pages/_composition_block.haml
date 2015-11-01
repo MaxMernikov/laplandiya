@@ -8,13 +8,14 @@
         .composition
           - if composition.kits.find_by(weight_id: weight.id, show: true)
             - weight.packings.each do |packing|
-              = link_to kit_path(Kit.last), class: 'composition-item' do
+              - code = Kit.gen_code(composition, weight, packing)
+              = link_to kit_path(code), class: 'composition-item' do
                 .composition-body
                   .composition-image
                     = image_tag(packing.image(:preview))
                   .composition-info
                     .composition-code
-                      № 32978 а
+                      № #{code}
                     .composition-link-text
                       ОТКРЫТЬ >
   .row.up-1
