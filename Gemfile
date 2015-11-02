@@ -24,6 +24,12 @@ gem 'enumerate_it' #Enumerate model
 gem 'inherited_resources' #slim controllers
 gem 'paperclip'
 gem 'russian'
+gem 'email_validator'
+gem 'jquery-ui-rails'
+gem 'bootstrap-datepicker-rails'
+
+gem 'wice_grid', '3.6.0.pre4'
+gem 'font-awesome-sass',  '~> 4.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

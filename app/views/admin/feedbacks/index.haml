@@ -1,0 +1,15 @@
+.page-header
+  %h1
+    = I18n.t('activerecord.models.feedback')
+
+= grid(@feedbacks_grid) do |g|
+  - g.column name: 'ID', attribute: 'id'
+  - g.column name: I18n.t('activerecord.attributes.feedback.user_name'), attribute: 'user_name'
+  - g.column name: I18n.t('activerecord.attributes.feedback.feedback'), attribute: 'feedback'
+  - g.column name: I18n.t('activerecord.attributes.feedback.created_at'), attribute: 'created_at' do |f|
+    - time_tag f.created_at, format: :short
+  - g.column do |f|
+    - link_to 'Удалить', admin_feedback_path(f), method: :delete, class: 'btn btn-default'
+
+
+

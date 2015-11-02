@@ -1,6 +1,7 @@
 .page-header
   %h1
     = I18n.t('activerecord.models.customfield')
+    = page_type
     / = link_to 'new', new_resource_url, class: 'btn btn-default pull-right'
 
 - if collection.present?

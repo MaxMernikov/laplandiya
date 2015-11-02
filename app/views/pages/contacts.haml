@@ -29,20 +29,5 @@
   #map
     = render 'map'
 
-  .container
-    .row
-      .col-md-12.text-center
-        .other-product-title
-          ВАС МОЖЕТ ЗАИНТЕРЕСОВАТЬ:
-      - 2.times do
-        - 3.times do |i|
-          .col-md-2
-            = link_to kit_path(Kit.last), class: 'composition-item' do
-              .composition-body.text-center
-                .composition-image
-                  = image_tag("fish-#{i+1}.png")
-                .composition-info
-                  .composition-code
-                    № 32978 а
-                  .composition-link-text
-                    ОТКРЫТЬ >
+  = render 'recommendations'
+

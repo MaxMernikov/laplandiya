@@ -1,10 +1,10 @@
 class Admin::CustomFieldsController < Admin::BaseController
   def create
-    create!{ collection_url }
+    create!{ collection_url(page_type: resource.page_type) }
   end
 
   def update
-    update!{ collection_url }
+    update!{ collection_url(page_type: resource.page_type) }
   end
 
 private
@@ -13,6 +13,10 @@ private
   end
 
   def collection
-    CustomField.ordered
+    if params[:page_type]
+      CustomField.where(page_type: params[:page_type]).ordered
+    else
+      CustomField.ordered
+    end
   end
 end

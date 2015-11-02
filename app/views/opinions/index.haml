@@ -32,7 +32,7 @@
     .row
       .col-md-2
       .col-md-8.text-center
-        = form_for Feedback.new do |f|
+        = form_for Feedback.new, remote: true, class: 'js-form' do |f|
           .row
             .col-md-6
               .form-group
@@ -44,7 +44,8 @@
           .form-group
             = f.text_area :feedback, placeholder: 'Введите введите текст сообщения:', class: 'form-control input-lg', rows: 8
 
-          = f.submit 'Отправить отзыв!', class: 'form-button'
+          = f.submit 'Отправить отзыв!', class: 'form-button', data: {disable_with: 'Идет отправка ...'}
+          %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
 
 = render 'brands'
 

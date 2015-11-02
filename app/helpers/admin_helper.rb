@@ -14,4 +14,16 @@ module AdminHelper
       'col-xs-6 col-xs-offset-3'
     end
   end
+
+  def page_type
+    return unless params[:page_type]
+    res = '- '
+    case params[:page_type]
+    when 'index'
+      res += 'Главная'
+    when 'delivery'
+      res += 'Оплата и доставка'
+    end
+    return res
+  end
 end

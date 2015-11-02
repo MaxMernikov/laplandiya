@@ -21,7 +21,9 @@ ru:
       sweet: 'Конфеты'
       customfield: 'Настраиваемые поля'
       kit: 'Наборы конфет'
-      opinion: 'Отзывы'
+      opinion: 'Отзывы для сайта'
+      feedback: 'Отзывы от пользователей'
+
 
     attributes:
       composition:
@@ -55,7 +57,11 @@ ru:
       opinion:
         user_name: 'Имя владельца отзыва'
         opinion: 'Текст отзыва'
-        answer: 'Ответ на отзыв'
         date: 'Дата отзыва'
+      feedback:
+        user_name: 'Имя владельца отзыва'
+        feedback: 'Текст отзыва'
+        created_at: 'Дата'
+
 
 

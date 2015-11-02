@@ -1,0 +1,19 @@
+- kits = Kit.show.order("RANDOM()").limit(6)
+.container
+  .row
+    .col-md-12.text-center
+      .other-product-title
+        ВАС МОЖЕТ ЗАИНТЕРЕСОВАТЬ:
+    - kits.each do |kit|
+      .col-md-2
+        - packing = kit.packings.sample
+        - code = Kit.gen_code(kit.composition, kit.weight, packing)
+        = link_to kit_path(Kit.last), class: 'composition-item' do
+          .composition-body.text-center
+            .composition-image
+              = image_tag(packing.image(:preview))
+            .composition-info
+              .composition-code
+                № #{code}
+              .composition-link-text
+                ОТКРЫТЬ >

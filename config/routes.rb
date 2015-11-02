@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :custom_fields, except: [:destroy]
     resources :kits, only: [:index, :edit, :update]
     resources :opinions, except: [:show]
+    resources :feedbacks, only: [:index, :destroy]
   end
 
   post '/init' => 'conf#init'# erase_me
