@@ -7,7 +7,7 @@
           .title= weight.title
           .cost 200 - 350 т.
 
-.cycle-slideshow{data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false}}}
+.cycle-slideshow{data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false, timeout: 0}}}
   - @weights.each do |weight|
     = render 'composition_block', weight: weight
 
