@@ -5,3 +5,5 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require wice_grid
+
+//= require ckeditor/init
