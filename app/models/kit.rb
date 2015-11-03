@@ -22,14 +22,14 @@ class Kit < ActiveRecord::Base
   end
 
   def self.gen_code(composition, weight, packing)
-    "#{composition.code}#{weight.code.to_s.rjust(2, "0")}#{packing.code.to_s.rjust(3, "0")}"
+    "#{composition.code}#{weight.code}#{packing.code.to_s.rjust(2, "0")}"
   end
 
   def self.parse_code(code)
     {
       composition: Composition.find_by(code: code[0]),
-      weight: Weight.find_by(code: code[1..2].to_i),
-      packing: Packing.find_by(code: code[3..5].to_i)
+      weight: Weight.find_by(code: code[1].to_i),
+      packing: Packing.find_by(code: code[2..3].to_i)
     }
   end
 
