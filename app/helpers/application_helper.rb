@@ -8,7 +8,7 @@ module ApplicationHelper
     when 'array'
       custom.value.split(',')
     when 'ckeditor'
-      raw "<div class='ckeditor-text'>#{custom.value}<\div>"
+      raw "<div class='ckeditor-text'>#{custom.value}</div>"
     else
       custom.value
     end
