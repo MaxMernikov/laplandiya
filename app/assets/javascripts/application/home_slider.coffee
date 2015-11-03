@@ -1,11 +1,12 @@
 $ ->
-  if $('.cycle-slideshow').length
+  $('.cycle-slideshow').imagesLoaded ->
     $('.cycle-slideshow').cycle
       slides: '> div'
       fx: 'fadeout'
       autoHeight: 'container'
       timeout: 0
 
+    $('.cycle-slideshow').cycle('goto', $('.js-control.active').data('slide'))
 
     $('.js-control').click (e) ->
       event.preventDefault()
@@ -13,4 +14,3 @@ $ ->
       $(this).addClass('active')
       $('.cycle-slideshow').cycle('goto', $(this).data('slide'))
 
-    $('.cycle-slideshow').cycle('goto', $('.js-control.active').data('slide'))
