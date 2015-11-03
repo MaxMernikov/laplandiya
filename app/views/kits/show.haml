@@ -36,7 +36,7 @@
 
 = render 'title_line', text: 'СОСТАВ:'
 
-.kit-sweets{class: 'cycle-slideshow', data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => false, timeout: 0}}}
+.kit-sweets{class: 'cycle-slideshow', data: {cycle: {fx: 'fadeout', slides: '> div', 'auto-height' => 'container', timeout: 0}}}
   - @compositions.each do |composition|
     - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
     - if kit

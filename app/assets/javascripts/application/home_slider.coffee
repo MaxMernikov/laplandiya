@@ -1,4 +1,3 @@
-# $('.cycle-slideshow').cycle( {paused: true} )
 $ ->
   $('.cycle-slideshow').cycle('goto', $('.js-control.active').data('slide'))
   $('.js-control').click (e) ->
