@@ -6,7 +6,3 @@ $ ->
     $('.js-control.active').removeClass('active')
     $(this).addClass('active')
     $('.cycle-slideshow').cycle('goto', $(this).data('slide'))
-    console.log 'f'
-    $('js-height-1').each () ->
-      console.log $(this).height()
-
