@@ -5,43 +5,49 @@
   border-bottom: 3px solid #ef010a
   text-align: center
   margin-bottom: 28px
-
-  .weight-menu-item
-    display: inline-block
-    width: 134px
-    border-left: 1px solid rgba(192, 192, 192, 0.28)
-    text-align: center
+  ul, li
     height: 100%
+  li
+    display: inline-block
     &:last-child
       border-right: 1px solid rgba(192, 192, 192, 0.28)
-    div
-      position: relative
-      font-weight: 400
-      font-family: 'CenturyGothicBold', sans-serif
+
+.weight-menu-item
+  display: inline-block
+  width: 134px
+  border-left: 1px solid rgba(192, 192, 192, 0.28)
+  text-align: center
+  height: 100%
+  .active &, &:hover
+    position: relative
+    &:before
+      background-color: #fff
+      content: ''
+      display: table
+      position: absolute
+      width: 147px
+      height: 148px
+      box-shadow: 0 0 14.7px 1.3px rgba(0, 0, 0, 0.26)
+      top: -13px
+      left: -9px
       z-index: 1
 
-    .title
-      margin-top: 37px
-      color: #eb020b
-      font-size: 30px
-      line-height: 14px
-    .cost
-      margin-top: 29px
-      color: #1b4a97
-      font-size: 16px
-      line-height: 14px
-    &.active, &:hover
-      position: relative
-      &:before
-        background-color: #fff
-        content: ''
-        display: table
-        position: absolute
-        width: 147px
-        height: 148px
-        box-shadow: 0 0 14.7px 1.3px rgba(0, 0, 0, 0.26)
-        top: -13px
-        left: -9px
-    &:hover
-      &:before
-        z-index: 1
+  &:hover
+    &:before
+      z-index: 2
+  div
+    position: relative
+    font-weight: 400
+    font-family: 'CenturyGothicBold', sans-serif
+    z-index: 2
+
+  .title
+    margin-top: 37px
+    color: #eb020b
+    font-size: 30px
+    line-height: 14px
+  .cost
+    margin-top: 29px
+    color: #1b4a97
+    font-size: 16px
+    line-height: 14px

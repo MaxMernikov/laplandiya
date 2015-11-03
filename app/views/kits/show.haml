@@ -19,32 +19,35 @@
           .col-md-6.body #{sweets_count} #{I18n.t(:count, count: sweets_count)}
 
         
-        - @compositions.each_with_index do |composition, index|
-          - if composition.kits.find_by(weight_id: @weight.id, show: true)
-            - code = Kit.gen_code(composition, @weight, @packing)
-            .row.composition-variant{class: "js-control #{'active' if @composition.id == composition.id}", data: { slide: index }}
-              .col-md-7
-                .col-md-3
-                  %i.is.icons-radio-button
-                .col-md-9
-                  “#{composition.title}”
-                  %br
-                  (№ #{code})
-              .col-md-5.cost
-                = composition.id
-                200 000 л
+        %ul.nav
+          - @compositions.each_with_index do |composition, index|
+            - if composition.kits.find_by(weight_id: @weight.id, show: true)
+              - code = Kit.gen_code(composition, @weight, @packing)
+              %li.row.composition-variant{class: ('active' if @composition.id == composition.id)}
+                %a{href: "#slide-#{index}", data: { toggle: "tab" }}
+                  .col-md-7
+                    .col-md-3
+                      %i.is.icons-radio-button
+                    .col-md-9
+                      “#{composition.title}”
+                      %br
+                      (№ #{code})
+                  .col-md-5.cost
+                    = composition.id
+                    200 000 л
 
 = render 'title_line', text: 'СОСТАВ:'
 
-.kit-sweets.cycle-slideshow
-  - @compositions.each do |composition|
+.kit-sweets.tab-content
+  - @compositions.each_with_index do |composition, index|
     - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
     - if kit
-      .tr.container-fluid
-        - SweetsCategory.ordered.each do |category|
-          - sweets = kit.sweets.where(sweets_category_id: category.id)
-          - if sweets.present?
-            = render 'sweets', category: category, sweets: sweets
+      .tab-pane{ class: ('active' if @composition.id == composition.id), id: "slide-#{index}"}
+        .tr.container-fluid
+          - SweetsCategory.ordered.each do |category|
+            - sweets = kit.sweets.where(sweets_category_id: category.id)
+            - if sweets.present?
+              = render 'sweets', category: category, sweets: sweets
       
 
 = render 'title_line', text: 'Как сделать заказ?'
