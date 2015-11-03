@@ -11,7 +11,7 @@
           .col-md-6.sweet-image
             = image_tag(sweet.image(:preview))
             .sweet-count
-              .count #{ @kit.kits_sweets.find_by(sweet_id: sweet.id).count }шт.
+              .count #{ @kit.kits_sweets.find_by(sweet_id: sweet.id).try(:count) }шт.
               %i.is.icons-sweets-count
           .col-md-6.sweet-text.text-center
             .title= sweet.title

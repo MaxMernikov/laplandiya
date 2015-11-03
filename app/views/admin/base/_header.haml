@@ -35,20 +35,20 @@
           = I18n.t('activerecord.models.customfield')
           %b.caret
         %ul.dropdown-menu
-          %li{ class: active_menu(['admin/custom_fields', 'admin/sweets']) }
+          %li
             = link_to 'Главная', admin_custom_fields_path(page_type: 'index')
               
-          %li{ class: active_menu(['admin/custom_fields', 'admin/sweets']) }
+          %li
             = link_to 'Оплата и доставка', admin_custom_fields_path(page_type: 'delivery')
 
-      %li{ class: active_menu('admin/opinions', 'index') }
+      %li{ class: active_menu(['admin/opinions', 'admin/feedbacks']) }
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           Отзывы
           %b.caret
         %ul.dropdown-menu
           %li{ class: active_menu('admin/opinions') }
             = link_to I18n.t('activerecord.models.opinion'), admin_opinions_path
-          %li{ class: active_menu('admin/feedback') }
+          %li{ class: active_menu('admin/feedbacks') }
             = link_to I18n.t('activerecord.models.feedback'), admin_feedbacks_path
 
 
