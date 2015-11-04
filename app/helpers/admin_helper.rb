@@ -25,6 +25,8 @@ module AdminHelper
       res += 'Оплата и доставка'
     when 'contacts'
       res += 'Контакты'
+    when 'opinions'
+      res += 'Отзывы'
     when 'modal'
       res += 'Модальные окна'
     end

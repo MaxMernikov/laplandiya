@@ -42,6 +42,46 @@ task seed_create_custom_fields_2: :environment do
   key = 'seo_text'
   CustomField.create(page_type: 'index', title: "SEO текст в футере", key: key, value: "", field_type: "ckeditor", pos: 4) unless CustomField.find_by(key: key)
 
+  key = 'emails'
+  CustomField.create(page_type: 'contacts', title: "Email", key: key, value: "info@laplandiya.by", field_type: "array", pos: 3) unless CustomField.find_by(key: key)
+
+  key = 'meta_title_index'
+  CustomField.create(page_type: 'index', title: "Meta Title", key: key, value: "", field_type: "string", pos: 97) unless CustomField.find_by(key: key)
+
+  key = 'meta_keywords_index'
+  CustomField.create(page_type: 'index', title: "Meta Keywords", key: key, value: "", field_type: "string", pos: 98) unless CustomField.find_by(key: key)
+
+  key = 'meta_description_index'
+  CustomField.create(page_type: 'index', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
+
+  key = 'meta_title_delivery'
+  CustomField.create(page_type: 'delivery', title: "Meta Title", key: key, value: "", field_type: "string", pos: 97) unless CustomField.find_by(key: key)
+
+  key = 'meta_keywords_delivery'
+  CustomField.create(page_type: 'delivery', title: "Meta Keywords", key: key, value: "", field_type: "string", pos: 98) unless CustomField.find_by(key: key)
+
+  key = 'meta_description_delivery'
+  CustomField.create(page_type: 'delivery', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
+
+  key = 'meta_title_contacts'
+  CustomField.create(page_type: 'contacts', title: "Meta Title", key: key, value: "", field_type: "string", pos: 97) unless CustomField.find_by(key: key)
+
+  key = 'meta_keywords_contacts'
+  CustomField.create(page_type: 'contacts', title: "Meta Keywords", key: key, value: "", field_type: "string", pos: 98) unless CustomField.find_by(key: key)
+
+  key = 'meta_description_contacts'
+  CustomField.create(page_type: 'contacts', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
+
+
+  key = 'meta_title_opinions'
+  CustomField.create(page_type: 'opinions', title: "Meta Title", key: key, value: "", field_type: "string", pos: 97) unless CustomField.find_by(key: key)
+
+  key = 'meta_keywords_opinions'
+  CustomField.create(page_type: 'opinions', title: "Meta Keywords", key: key, value: "", field_type: "string", pos: 98) unless CustomField.find_by(key: key)
+
+  key = 'meta_description_opinions'
+  CustomField.create(page_type: 'opinions', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
+
   ap "CustomField create"
 
 end
