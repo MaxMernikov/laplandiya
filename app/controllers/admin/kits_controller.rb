@@ -9,6 +9,8 @@ class Admin::KitsController < Admin::BaseController
       kits = Kit.where(composition_id: params[:composition_id])
     elsif params[:weight_id].present?
       kits = Kit.where(weight_id: params[:weight_id])
+    elsif params[:kit_id].present?
+      kits = Kit.where(id: params[:kit_id])
     end
 
     kits.each do |kit|
@@ -16,12 +18,9 @@ class Admin::KitsController < Admin::BaseController
         if params[:cost].present?
           cost = params[:cost].to_i
         elsif params[:percent].present?
-          ap 'percent'
-          ap percent = (100 + params[:percent].to_i).to_f / 100 
-          ap 'cost'
-          ap cost = kp.cost.to_f * percent
+          percent = (100 + params[:percent].to_i).to_f / 100 
+          cost = kp.cost.to_f * percent
         end
-        ap cost
 
         kp.update_column(:cost, cost)
       end

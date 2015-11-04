@@ -9,17 +9,11 @@
         %th
         - @compositions.each do |composition|
           %th.text-center
-            = composition.title
-            %br
-            %br
+            %p= composition.title
             .row
               = form_tag change_cost_admin_kits_path do
                 = hidden_field_tag :composition_id, composition.id
-                .col-xs-4
-                  .form-group
-                    = text_field_tag :cost, '', class: 'form-control input-sm'
-                    .text-helper.text-muted Установка цены
-                .col-xs-4
+                .col-xs-8
                   .form-group
                     = text_field_tag :percent, '', class: 'form-control input-sm'
                     .text-helper.text-muted Изменение на процент
@@ -30,14 +24,10 @@
       - @weights.each do |weight|
         %tr
           %td
-            %b= weight.title
-            %br
-            %br
+            %p
+              %b= weight.title
             = form_tag change_cost_admin_kits_path do
               = hidden_field_tag :weight_id, weight.id
-              .form-group
-                = text_field_tag :cost, '', class: 'form-control input-sm'
-                .text-helper.text-muted Установка цены
               .form-group
                 = text_field_tag :percent, '', class: 'form-control input-sm'
                 .text-helper.text-muted Изменение на процент
@@ -46,6 +36,19 @@
           - @compositions.each do |composition|
             - kit = collection.find_by(composition: composition, weight: weight)
             %td.text-center{ style: "opacity: #{kit.show ? 1 : 0.5}" }
+              %p
+                %b #{composition.title} - #{weight.title}
+              .row
+                = form_tag change_cost_admin_kits_path do
+                  = hidden_field_tag :kit_id, kit.id
+                  .col-xs-8
+                    .form-group
+                      = text_field_tag :cost, '', class: 'form-control input-sm'
+                      .text-helper.text-muted Установка цены
+                  .col-xs-4
+                    .form-group
+                      = submit_tag 'применить', class: 'btn btn-default btn-sm'
+
               %p
                 = kit.kits_sweets.pluck(:count).sum
                 = I18n.t(:sweet, count: kit.sweets_count)
