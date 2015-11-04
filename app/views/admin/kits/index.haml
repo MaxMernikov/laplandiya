@@ -3,21 +3,58 @@
     = I18n.t('activerecord.models.kit')
 
 - if collection.present?
-  %table.table
+  %table.table.table-bordered
     %thead
       %tr
         %th
         - @compositions.each do |composition|
-          %th.text-center= composition.title
+          %th.text-center
+            = composition.title
+            %br
+            %br
+            .row
+              = form_tag change_cost_admin_kits_path do
+                = hidden_field_tag :composition_id, composition.id
+                .col-xs-4
+                  .form-group
+                    = text_field_tag :cost, '', class: 'form-control input-sm'
+                    .text-helper.text-muted Установка цены
+                .col-xs-4
+                  .form-group
+                    = text_field_tag :percent, '', class: 'form-control input-sm'
+                    .text-helper.text-muted Изменение на процент
+                .col-xs-4
+                  .form-group
+                    = submit_tag 'применить', class: 'btn btn-default btn-sm'
     %tbody
       - @weights.each do |weight|
         %tr
-          %td= weight.title
+          %td
+            %b= weight.title
+            %br
+            %br
+            = form_tag change_cost_admin_kits_path do
+              = hidden_field_tag :weight_id, weight.id
+              .form-group
+                = text_field_tag :cost, '', class: 'form-control input-sm'
+                .text-helper.text-muted Установка цены
+              .form-group
+                = text_field_tag :percent, '', class: 'form-control input-sm'
+                .text-helper.text-muted Изменение на процент
+              .form-group
+                = submit_tag 'применить', class: 'btn btn-default btn-sm'
           - @compositions.each do |composition|
             - kit = collection.find_by(composition: composition, weight: weight)
             %td.text-center{ style: "opacity: #{kit.show ? 1 : 0.5}" }
-              = kit.kits_sweets.pluck(:count).sum
-              = I18n.t(:sweet, count: kit.sweets_count)
+              %p
+                = kit.kits_sweets.pluck(:count).sum
+                = I18n.t(:sweet, count: kit.sweets_count)
+              %p
+                - kit.kits_packings.each do |kp|
+                  = cost_tag kp.cost
+                  - if kp.discount != 0
+                    (- #{ kp.discount }%)
+                  %br
               %br
               = link_to 'edit', edit_resource_url(kit), class: 'btn btn-default'
 

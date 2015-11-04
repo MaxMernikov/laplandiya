@@ -29,7 +29,9 @@ Rails.application.routes.draw do
     resources :packings
     resources :sweets_categories
     resources :custom_fields, except: [:destroy]
-    resources :kits, only: [:index, :edit, :update]
+    resources :kits, only: [:index, :edit, :update] do
+      post :change_cost, on: :collection
+    end
     resources :opinions, except: [:show]
     resources :feedbacks, only: [:index, :destroy]
   end
