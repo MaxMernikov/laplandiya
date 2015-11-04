@@ -2,8 +2,20 @@
   .container
     .row
       .col-md-6.text-right
-        .kit-image
-          = image_tag @packing.image, class: 'img-responsive'
+        .tab-content
+          - @compositions.each_with_index do |composition, index|
+            - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
+            - if kit
+              .tab-pane{ class: "#{'active' if @composition.id == composition.id} js-slide-#{index}"}
+                .kit-image
+                  - discount = kit.kits_packings.find_by(packing_id: @packing.id).discount
+                  - if discount > 0
+                    .composition-discount
+                      %i.is.icons-discount
+                      .discount #{ discount }%
+                    %i.is.icons-action
+                  = image_tag @packing.image, class: 'img-responsive'
+
       .col-md-6
         .row.kit-info
           .col-md-6.title Вес подарка:
@@ -15,8 +27,14 @@
 
         .row.kit-info
           .col-md-6.title Кол-во конфет:
-          - sweets_count = @kit.sweets_count
-          .col-md-6.body #{sweets_count} #{I18n.t(:count, count: sweets_count)}
+          .col-md-6.body.tab-content
+            - @compositions.each_with_index do |composition, index|
+              - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
+              - if kit
+                .tab-pane{ class: "#{'active' if @composition.id == composition.id} js-slide-#{index}"}
+
+                  - sweets_count = kit.sweets_count
+                  #{sweets_count} #{I18n.t(:count, count: sweets_count)}
 
         
         %ul.nav
@@ -24,7 +42,7 @@
             - if composition.kits.find_by(weight_id: @weight.id, show: true)
               - code = Kit.gen_code(composition, @weight, @packing)
               %li.row.composition-variant{class: ('active' if @composition.id == composition.id)}
-                %a{href: "#slide-#{index}", data: { toggle: "tab" }}
+                %a{href: ".js-slide-#{index}", data: { toggle: "tab" }}
                   .col-md-7
                     .col-md-3
                       %i.is.icons-radio-button
@@ -41,7 +59,7 @@
   - @compositions.each_with_index do |composition, index|
     - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
     - if kit
-      .tab-pane{ class: ('active' if @composition.id == composition.id), id: "slide-#{index}"}
+      .tab-pane{ class: "#{'active' if @composition.id == composition.id} js-slide-#{index}"}
         .tr.container-fluid
           - SweetsCategory.ordered.each do |category|
             - sweets = kit.sweets.where(sweets_category_id: category.id)
