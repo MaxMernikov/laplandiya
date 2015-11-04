@@ -17,3 +17,11 @@
     = render 'composition_block', weight: weight, index: index
 
 = render 'brands'
+
+- if custom?('seo_text')
+  .footer-text
+    .container
+      .row
+        .col-md-2
+        .col-md-8
+          = custom('seo_text')

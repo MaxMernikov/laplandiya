@@ -39,6 +39,9 @@ task seed_create_custom_fields_2: :environment do
   key = 'modal_feedback_body'
   CustomField.create(page_type: 'modals', title: "Отзыв - Текст модального окна", key: key, value: "", field_type: "ckeditor", pos: 3) unless CustomField.find_by(key: key)
 
+  key = 'seo_text'
+  CustomField.create(page_type: 'index', title: "SEO текст в футере", key: key, value: "", field_type: "ckeditor", pos: 4) unless CustomField.find_by(key: key)
+
   ap "CustomField create"
 
 end
