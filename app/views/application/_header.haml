@@ -6,7 +6,7 @@
           \:)
         .hidden-xs
           - if custom?('get_call')
-            = link_to '#', class: 'get-call' do
+            = link_to '#', class: 'get-call', "data-target" => "#getCallModal", "data-toggle" => "modal", :type => "button" do
               %i.is.icons-get-call
               %span.text-get-call= custom('get_call')
       .col-xs-4.text-center.menu

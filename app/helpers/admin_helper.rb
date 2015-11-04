@@ -23,6 +23,10 @@ module AdminHelper
       res += 'Главная'
     when 'delivery'
       res += 'Оплата и доставка'
+    when 'contacts'
+      res += 'Контакты'
+    when 'modal'
+      res += 'Модальные окна'
     end
     return res
   end

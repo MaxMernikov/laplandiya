@@ -5,12 +5,10 @@
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
         %h4#myModalLabel.modal-title
-          Спасибо за добавление отзыва!
+          = custom('modal_feedback_title')
 
       .modal-body
-        Нам важно ваше мнение
-
-/ Large modal
+        = custom('modal_feedback_body')
 
 #orderModal.modal.fade{"aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog{:role => "document"}
@@ -19,21 +17,41 @@
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
         %h4#myModalLabel.modal-title
-          Спасибо!
-          %br
-          Ваш заказ принят!
+          = custom('modal_order_title')
 
       .modal-body
-        %p 
-          Наши менеджеры выставят Вам счёт для оплаты.
-          %br
-          Оплата производится в любом отделении банка,
-          %br
-          перечислив деньги на расчётный счёт указанный в счёт-фактуре.
-        %p
-          Оплачивайте счета до оканчания акций со скидками!!!
-        %p
-          Также Вы можете произвести оплату наличными
-          %br
-          при заказе до 10 наборов в офисе нашей компании.
-        / %button.btn.btn-primary{"data-target" => "#feedbackModal", "data-toggle" => "modal", :type => "button"} Large modal
+        = custom('modal_order_body')
+
+#getCallModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content.text-center
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title
+          = custom('modal_get_call_title')
+
+      .modal-body
+        = custom('modal_get_call_body')
+        %br
+        = form_for Order.new, remote: true, html: { class: 'js-form', data: {form: 'getCallSuccess'} } do |f|
+          .form-group
+            = f.text_field :user_name, placeholder: 'Укажите ваше имя:', class: 'form-control input-lg'
+
+          .form-group
+            = f.text_field :phone, class: 'form-control input-lg'
+
+          = f.submit 'Оформить заявку!', class: 'form-button', data: {disable_with: 'Идет отправка ...'}
+
+
+#getCallSuccessModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content.text-center
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title
+          = custom('modal_get_call_succes_title')
+
+      .modal-body
+        = custom('modal_get_call_succes_body')
