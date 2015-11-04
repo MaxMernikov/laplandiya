@@ -10,10 +10,17 @@
               = cost_tag(kit.kits_packings.pluck(:cost).min)
           .composition
             - weight.packings.each do |packing|
+              - discount = kit.kits_packings.find_by(packing_id: packing).discount
+
               - code = Kit.gen_code(composition, weight, packing)
               = link_to kit_path(code), class: 'composition-item' do
                 .composition-body
                   .composition-image
+                    - if discount > 0
+                      .composition-discount
+                        %i.is.icons-discount
+                        .discount #{ discount }%
+                      %i.is.icons-action
                     = image_tag(packing.image(:preview))
                   .composition-info
                     .composition-code
