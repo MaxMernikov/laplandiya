@@ -78,7 +78,7 @@
             = f.text_field :user_name, placeholder: 'Укажите ваше имя:', class: 'form-control input-lg'
 
           .form-group
-            = f.text_field :phone, class: 'form-control input-lg'
+            = f.text_field :phone, placeholder: '+375 (__) ___ __ __', class: 'form-control input-lg'
 
           = f.submit 'Отправить заказ!', class: 'form-button', data: {disable_with: 'Идет отправка ...'}
           / %button.btn.btn-primary{"data-target" => "#feedbackModal", "data-toggle" => "modal", :type => "button"} Large modal
