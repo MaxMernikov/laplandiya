@@ -8,6 +8,19 @@
 .form-group
   = f.label :weight_id
   = f.text_field :weight_id, value: resource.weight.title, class: 'form-control', disabled: true
+.row
+  = f.fields_for :kits_packings do |p|
+    / = s.hidden_field :sweet_id
+    = p.hidden_field :id
+    .col-xs-3
+      .form-group
+        = p.label :cost
+        = p.text_field :cost, class: 'form-control'
+      .form-group
+        = p.label :discount
+        = p.text_field :discount, class: 'form-control'
+      = image_tag p.object.packing.image(:preview)
+%br
 
 .alert.alert-warning
   .checkbox

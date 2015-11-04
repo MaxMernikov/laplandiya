@@ -6,6 +6,9 @@ class Kit < ActiveRecord::Base
   accepts_nested_attributes_for :kits_sweets, reject_if: lambda { |a| a[:count].to_i <= 0 || a[:count].blank? }, allow_destroy: true
   has_many :sweets, through: :kits_sweets
 
+  has_many :kits_packings, dependent: :destroy
+  accepts_nested_attributes_for :kits_packings, allow_destroy: false
+
   scope :show, -> { where(show: true) }
 
 
@@ -13,6 +16,12 @@ class Kit < ActiveRecord::Base
     Composition.all.each do |composition|
       Weight.all.each do |weight|
         Kit.find_or_create_by(composition: composition, weight: weight)
+      end
+    end
+
+    Kit.all.each do |kit|
+      kit.weight.packings.each do |packing|
+        kit.kits_packings.find_or_create_by(packing_id: packing.id)
       end
     end
   end

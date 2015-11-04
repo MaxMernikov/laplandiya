@@ -1,12 +1,14 @@
 .container.composition-block.tab-pane{ class: ('active' if index == 2), id: "slide-#{index}"}
   .row.up-2.js-height-1
     - Composition.all.each do |composition|
+      - kit = composition.kits.find_by(weight_id: weight.id, show: true)
       .col-xs-4.text-center
-        .composition-header
-          .composition-title= composition.title
-          .composition-cost 200 000 руб.
-        .composition
-          - if composition.kits.find_by(weight_id: weight.id, show: true)
+        - if kit
+          .composition-header
+            .composition-title= composition.title
+            .composition-cost
+              = cost_tag(kit.kits_packings.pluck(:cost).min)
+          .composition
             - weight.packings.each do |packing|
               - code = Kit.gen_code(composition, weight, packing)
               = link_to kit_path(code), class: 'composition-item' do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103140933) do
+ActiveRecord::Schema.define(version: 20151104043941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,18 @@ ActiveRecord::Schema.define(version: 20151103140933) do
   add_index "kits", ["composition_id"], name: "index_kits_on_composition_id", using: :btree
   add_index "kits", ["weight_id"], name: "index_kits_on_weight_id", using: :btree
 
+  create_table "kits_packings", force: :cascade do |t|
+    t.integer  "kit_id"
+    t.integer  "packing_id"
+    t.integer  "cost",       default: 0
+    t.integer  "discount",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "kits_packings", ["kit_id"], name: "index_kits_packings_on_kit_id", using: :btree
+  add_index "kits_packings", ["packing_id"], name: "index_kits_packings_on_packing_id", using: :btree
+
   create_table "kits_sweets", force: :cascade do |t|
     t.integer  "kit_id"
     t.integer  "sweet_id"
@@ -174,6 +186,8 @@ ActiveRecord::Schema.define(version: 20151103140933) do
   add_foreign_key "compositions_manufacturers", "manufacturers"
   add_foreign_key "kits", "compositions"
   add_foreign_key "kits", "weights"
+  add_foreign_key "kits_packings", "kits"
+  add_foreign_key "kits_packings", "packings"
   add_foreign_key "kits_sweets", "kits"
   add_foreign_key "kits_sweets", "sweets"
   add_foreign_key "sweets", "manufacturers"

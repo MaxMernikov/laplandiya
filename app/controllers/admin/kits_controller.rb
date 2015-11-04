@@ -6,6 +6,6 @@ class Admin::KitsController < Admin::BaseController
 
 private
   def kit_params
-    params.require(:kit).permit(:show, kits_sweets_attributes: [:id, :count, :sweet_id, :_destroy])
+    params.require(:kit).permit(:show, kits_sweets_attributes: [:id, :count, :sweet_id, :_destroy], kits_packings_attributes: [:id, :cost, :discount])
   end
 end

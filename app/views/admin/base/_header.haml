@@ -41,6 +41,9 @@
           %li
             = link_to 'Оплата и доставка', admin_custom_fields_path(page_type: 'delivery')
 
+          %li
+            = link_to 'Контакты', admin_custom_fields_path(page_type: 'contacts')
+
       %li{ class: active_menu(['admin/opinions', 'admin/feedbacks']) }
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           Отзывы

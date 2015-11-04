@@ -7,7 +7,9 @@
           %li{ class: ('active' if index == 2) }
             = link_to "#slide-#{index}", class: "weight-menu-item", data: { toggle: "tab" } do
               .title= weight.title
-              .cost 200 - 350 т.
+              .cost
+                - min_max = min_max_cost(weight)
+                #{ min_max[:min] / 1000 } - #{ min_max[:max] / 1000 } т.
 
 
 .tab-content

@@ -6,7 +6,8 @@
     .row
       .col-md-6.col-md-offset-3.text-center
         .title
-          Контакты и адрес:
+          = custom('contacts_title')
+          
         - if custom?('velcom_phone')
           .phones-block-item
             %i.is.icons-velcom-logo-black
@@ -22,9 +23,15 @@
             %i.is.icons-phone-logo-black
             = custom('phone')
 
+        - custom('contacts_custom_phones').each do |custom_phone|
+          .phones-block-item
+            %i.is.icons-phone-logo-black
+            = custom_phone
+
         .address
           %i.is.icons-marker
-          Республика Беларусь, г. Минск, ул. Селицкого, 19а, 220075.
+          = custom('contacts_address')
+          
 
   #map
     = render 'map'

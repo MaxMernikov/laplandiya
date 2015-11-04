@@ -33,8 +33,7 @@
                       %br
                       (№ #{code})
                   .col-md-5.cost
-                    = composition.id
-                    200 000 л
+                    = cost_tag(Kit.find_by(composition_id: composition.id, weight_id: @weight.id).kits_packings.find_by(packing_id: @packing.id).cost)
 
 = render 'title_line', text: 'СОСТАВ:'
 
