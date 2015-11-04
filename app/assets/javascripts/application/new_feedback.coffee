@@ -23,11 +23,13 @@ $.fn.clear_form_fields = () ->
       .removeAttr('checked')
       .removeAttr('selected')
 
-window.onload = ->
-  $("#new_feedback").on("ajax:success", (e, data, status, xhr) ->
-    $("#new_feedback").clear_form_errors()
-    $("#new_feedback").clear_form_fields()
-    $('#myModal').modal()
+$ ->
+  $(".js-form").on("ajax:success", (e, data, status, xhr) ->
+    $(".js-form").clear_form_errors()
+    $(".js-form").clear_form_fields()
+
+    $('.modal').modal('hide')
+    $('#' + $(this).data('form') + 'Modal').modal('show')
   ).on("ajax:error", (e, data, status, xhr) ->
-    $("#new_feedback").render_form_errors('feedback', JSON.parse(data.responseText))
+    $(".js-form").render_form_errors($(this).data('form'), JSON.parse(data.responseText))
   )

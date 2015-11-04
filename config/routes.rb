@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :opinions, only: [:index]
   resources :feedbacks, only: [:create]
   resources :kits, only: [:show]
+  resources :orders, only: [:create]
 
   namespace 'admin' do
     root 'dashboards#index'
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
     end
     resources :opinions, except: [:show]
     resources :feedbacks, only: [:index, :destroy]
+    resources :orders, only: [:index]
   end
 
   post '/init' => 'conf#init'# erase_me

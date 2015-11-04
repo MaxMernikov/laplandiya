@@ -1,4 +1,4 @@
-#myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+#feedbackModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog{:role => "document"}
     .modal-content.text-center
       .modal-header
@@ -9,4 +9,31 @@
 
       .modal-body
         Нам важно ваше мнение
-                
+
+/ Large modal
+
+#orderModal.modal.fade{"aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content.text-center
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title
+          Спасибо!
+          %br
+          Ваш заказ принят!
+
+      .modal-body
+        %p 
+          Наши менеджеры выставят Вам счёт для оплаты.
+          %br
+          Оплата производится в любом отделении банка,
+          %br
+          перечислив деньги на расчётный счёт указанный в счёт-фактуре.
+        %p
+          Оплачивайте счета до оканчания акций со скидками!!!
+        %p
+          Также Вы можете произвести оплату наличными
+          %br
+          при заказе до 10 наборов в офисе нашей компании.
+        %button.btn.btn-primary{"data-target" => "#feedbackModal", "data-toggle" => "modal", :type => "button"} Large modal

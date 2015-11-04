@@ -44,6 +44,9 @@
           %li
             = link_to 'Контакты', admin_custom_fields_path(page_type: 'contacts')
 
+      %li{ class: active_menu('admin/orders')}
+        = link_to I18n.t('activerecord.models.orders'), admin_orders_path
+
       %li{ class: active_menu(['admin/opinions', 'admin/feedbacks']) }
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           Отзывы

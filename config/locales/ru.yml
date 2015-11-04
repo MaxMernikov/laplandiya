@@ -23,6 +23,7 @@ ru:
       kit: 'Наборы конфет'
       opinion: 'Отзывы для сайта'
       feedback: 'Отзывы от пользователей'
+      order: 'Заказы'
 
 
     attributes:
@@ -65,6 +66,11 @@ ru:
       kits_packing:
         discount: 'Скидка'
         cost: 'Цена'
+      order:
+        user_name: 'Имя'
+        phone: 'Телефон'
+        created_at: 'Дата'
+        recently_viewed: 'Последние проссмотренные позиции'
 
 
 

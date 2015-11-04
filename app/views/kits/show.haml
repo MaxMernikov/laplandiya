@@ -68,5 +68,18 @@
       
 
 = render 'title_line', text: 'Как сделать заказ?'
-.kit-sweets
+.kit
   .container
+    .row
+      .col-md-4
+      .col-md-4.text-center
+        = form_for Order.new, remote: true, html: { class: 'js-form', data: {form: 'order'} } do |f|
+          .form-group
+            = f.text_field :user_name, placeholder: 'Укажите ваше имя:', class: 'form-control input-lg'
+
+          .form-group
+            = f.text_field :phone, class: 'form-control input-lg'
+
+          = f.submit 'Отправить заказ!', class: 'form-button', data: {disable_with: 'Идет отправка ...'}
+          %button.btn.btn-primary{"data-target" => "#feedbackModal", "data-toggle" => "modal", :type => "button"} Large modal
+          %button.btn.btn-primary{"data-target" => "#orderModal", "data-toggle" => "modal", :type => "button"} Large modal
