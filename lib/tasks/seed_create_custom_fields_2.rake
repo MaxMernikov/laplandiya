@@ -83,7 +83,7 @@ task seed_create_custom_fields_2: :environment do
   CustomField.create(page_type: 'opinions', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
 
   key = 'recommendations'
-  CustomField.create(page_type: 'recommendations', title: "Наборы для блока рекомендации", key: key, value: "'1123', '2123', '2132'", field_type: "array", pos: 0) unless CustomField.find_by(key: key)
+  CustomField.create(page_type: 'recommendations', title: "Наборы для блока рекомендации", key: key, value: "1123, 2123, 2132", field_type: "array", pos: 0) unless CustomField.find_by(key: key)
 
   ap "CustomField create"
 
