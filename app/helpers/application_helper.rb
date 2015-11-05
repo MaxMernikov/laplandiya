@@ -31,7 +31,7 @@ module ApplicationHelper
         kit_codes << Kit.gen_code(kit.composition, kit.weight, kit.packings.sample)
       end
     end
-    kit_codes += custom('recomendations').shuffle
+    kit_codes += custom('recommendations').shuffle
     kit_codes.uniq.take(6)
   end
 end
