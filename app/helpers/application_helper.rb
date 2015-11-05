@@ -17,5 +17,21 @@ module ApplicationHelper
 
   def cost_tag(cost)
     "#{cost.to_s.reverse.scan(/\d{1,3}/).join(' ').reverse} руб."
-  end 
+  end
+
+  def kit_codes
+    kit_codes = []
+    if cookies[:recently_viewed].present?
+      kit_codes += (JSON.parse(cookies[:recently_viewed]).reverse)[1..3]
+    end
+
+    if kit_codes.size > 0
+      kit = Kit.parse_code(kit_codes[0])
+      kit[:weight].kits.where(show: true).each do |kit|
+        kit_codes << Kit.gen_code(kit.composition, kit.weight, kit.packings.sample)
+      end
+    end
+    kit_codes += custom('recomendations').shuffle
+    kit_codes.uniq.take(6)
+  end
 end

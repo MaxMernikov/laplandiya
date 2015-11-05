@@ -35,6 +35,7 @@ class Kit < ActiveRecord::Base
   end
 
   def self.parse_code(code)
+    code = code.to_s
     {
       composition: Composition.find_by(code: code[0]),
       weight: Weight.find_by(code: code[1].to_i),

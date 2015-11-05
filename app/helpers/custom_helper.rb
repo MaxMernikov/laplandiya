@@ -6,7 +6,7 @@ module CustomHelper
     when 'text'
       raw custom.value.gsub(/\r\n/, '<br>')
     when 'array'
-      custom.value.split(',')
+      custom.value.split(', ')
     when 'ckeditor'
       raw "<div class='ckeditor-text'>#{custom.value}</div>"
     else

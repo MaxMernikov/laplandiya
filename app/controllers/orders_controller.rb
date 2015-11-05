@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    if cookies[:recently_viewed].present?
+      @order.recently_viewed = JSON.parse(cookies[:recently_viewed])
+      cookies.delete(:recently_viewed)
+    end
 
     respond_to do |format|
       if @order.save

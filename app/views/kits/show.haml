@@ -83,3 +83,5 @@
           = f.submit 'Отправить заказ!', class: 'form-button', data: {disable_with: 'Идет отправка ...'}
           / %button.btn.btn-primary{"data-target" => "#feedbackModal", "data-toggle" => "modal", :type => "button"} Large modal
           / %button.btn.btn-primary{"data-target" => "#orderModal", "data-toggle" => "modal", :type => "button"} Large modal
+
+= render 'pages/recommendations', title: 'Похожие товары:'

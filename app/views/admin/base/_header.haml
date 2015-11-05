@@ -52,6 +52,9 @@
           %li
             = link_to 'Модальные окна', admin_custom_fields_path(page_type: 'modals')
 
+          %li
+            = link_to 'Блок рекомендаций', admin_custom_fields_path(page_type: 'recomendations')
+
       %li{ class: active_menu('admin/orders')}
         = link_to I18n.t('activerecord.models.order'), admin_orders_path
 

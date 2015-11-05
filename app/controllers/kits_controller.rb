@@ -1,5 +1,12 @@
 class KitsController < ApplicationController
   def show
+    if cookies[:recently_viewed].present?
+      recently_viewed = JSON.parse(cookies[:recently_viewed])
+      cookies[:recently_viewed] = JSON.generate( recently_viewed.push(params[:id]).uniq )
+    else
+      cookies[:recently_viewed] = JSON.generate([params[:id]])
+    end
+
     code = Kit.parse_code(params[:id])
     @compositions = Composition.ordered
     @composition = code[:composition]

@@ -6,6 +6,8 @@
   - g.column name: 'ID', attribute: 'id'
   - g.column name: I18n.t('activerecord.attributes.order.user_name'), attribute: 'user_name'
   - g.column name: I18n.t('activerecord.attributes.order.phone'), attribute: 'phone'
-  - g.column name: I18n.t('activerecord.attributes.order.recently_viewed'), attribute: 'recently_viewed'
+  - g.column name: I18n.t('activerecord.attributes.order.recently_viewed') do |c|
+    - c.recently_viewed.join(', ')
+
   - g.column name: I18n.t('activerecord.attributes.order.created_at'), attribute: 'created_at' do |f|
     - time_tag f.created_at, format: :short
