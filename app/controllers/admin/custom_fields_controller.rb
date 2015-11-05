@@ -9,7 +9,7 @@ class Admin::CustomFieldsController < Admin::BaseController
 
 private
   def custom_field_params
-    params.require(:custom_field).permit(:title, :key, :value, :field_type, :pos, :image)
+    params.require(:custom_field).permit(:title, :key, :value, :field_type, :pos, :image, :delete_image)
   end
 
   def collection

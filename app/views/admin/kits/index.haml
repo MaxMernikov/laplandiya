@@ -54,7 +54,7 @@
                 = I18n.t(:sweet, count: kit.sweets_count)
               %p
                 - kit.kits_packings.each do |kp|
-                  = cost_tag kp.cost
+                  #{cost_tag(kp.cost)} руб.
                   - if kp.discount != 0
                     (- #{ kp.discount }%)
                   %br

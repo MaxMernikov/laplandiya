@@ -52,6 +52,7 @@
                       (№ #{code})
                   .col-md-5.cost
                     = cost_tag(Kit.find_by(composition_id: composition.id, weight_id: @weight.id).kits_packings.find_by(packing_id: @packing.id).cost)
+                    руб.
 
 = render 'title_line', text: 'СОСТАВ:'
 

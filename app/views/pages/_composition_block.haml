@@ -8,7 +8,7 @@
             .composition-title= composition.title
             .composition-cost
               - costs = kit.kits_packings.pluck(:cost)
-              #{ costs.min / 1000 } - #{ costs.max / 1000 } т.
+              #{ cost_tag(costs.min) } - #{ cost_tag(costs.max) } руб.
 
           .composition
             - weight.packings.each do |packing|

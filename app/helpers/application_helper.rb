@@ -16,7 +16,7 @@ module ApplicationHelper
   end  
 
   def cost_tag(cost)
-    "#{cost.to_s.reverse.scan(/\d{1,3}/).join(' ').reverse} руб."
+    "#{cost.to_s.reverse.scan(/\d{1,3}/).join(' ').reverse}"
   end
 
   def kit_codes
