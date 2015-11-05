@@ -7,7 +7,9 @@
           .composition-header
             .composition-title= composition.title
             .composition-cost
-              = cost_tag(kit.kits_packings.pluck(:cost).min)
+              - costs = kit.kits_packings.pluck(:cost)
+              #{ costs.min / 1000 } - #{ costs.max / 1000 } т.
+
           .composition
             - weight.packings.each do |packing|
               - discount = kit.kits_packings.find_by(packing_id: packing).try(:discount)
