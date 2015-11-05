@@ -12,6 +12,18 @@
   = f.label :value
   = f.cktext_area :value
 
+- elsif resource.field_type == 'image'
+  .row
+    .col-xs-8
+      = f.label :image
+      = f.file_field :image
+    .col-xs-4
+      - if f.object.image.present?
+        = image_tag f.object.image.url, class: 'pull-right img-responsive'
+
+        = f.check_box :delete_image
+        Удалить?
+
 - else
   = f.label :value
   = f.text_field :value, class: 'form-control'

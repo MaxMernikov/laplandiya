@@ -15,7 +15,8 @@
       - collection.each do |col|
         %tr
           %td{title: "#{col.pos}: #{col.key}"}= col.title
-          %td= custom(col.key)
+          %td.custom-field
+            = custom(col.key)
           %td
             .pull-right.controls
               = link_to 'edit', edit_resource_url(col), class: 'btn btn-default'

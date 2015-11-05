@@ -97,6 +97,14 @@ task seed_create_custom_fields_2: :environment do
   key = 'meta_description_kit_page'
   CustomField.create(page_type: 'kit_page', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
 
+  key = 'index_image'
+  CustomField.create(page_type: 'index', title: "Картинка в шапке сайта", key: key, value: '', field_type: "image", pos: 3) unless CustomField.find_by(key: key)
+
+  (1..8).each do |i|
+    key = "manufacturer_logo_#{i}"
+    CustomField.create(page_type: 'index', title: "Логотип производителя", key: key, value: '', field_type: "image", pos: 4) unless CustomField.find_by(key: key)
+  end
+
   ap "CustomField create"
 
 end

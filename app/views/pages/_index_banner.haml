@@ -2,7 +2,7 @@
   %i.is.banner-bell
   .visible-block
     %i.is.banner-fir-tree
-    = image_tag 'banner-candies.png', class: 'is banner-candies'
+    .is.banner-candies= custom('index_image')
     - if custom?('banner_santa')
       %i.is.banner-bals.visible-md.visible-lg
       %i.is.banner-santa.visible-md.visible-lg
@@ -11,9 +11,3 @@
 
     .banner-action
       = custom('index_banner')
-      / АКЦИЯ! 
-      / %span ДО 29 СЕНТЯБРЯ
-      / %br
-      / СКИДКА
-      / %span 10%
-      / НА НАБОРЫ 3,5 КГ

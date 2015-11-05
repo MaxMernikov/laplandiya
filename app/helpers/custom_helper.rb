@@ -9,6 +9,8 @@ module CustomHelper
       custom.value.split(', ')
     when 'ckeditor'
       raw "<div class='ckeditor-text'>#{custom.value}</div>"
+    when 'image'
+      image_tag(custom.image) if custom.image_file_name?
     else
       custom.value
     end
