@@ -10,7 +10,7 @@
               = cost_tag(kit.kits_packings.pluck(:cost).min)
           .composition
             - weight.packings.each do |packing|
-              - discount = kit.kits_packings.find_by(packing_id: packing).discount
+              - discount = kit.kits_packings.find_by(packing_id: packing).try(:discount)
 
               - code = Kit.gen_code(composition, weight, packing)
               = link_to kit_path(code), class: 'composition-item' do
