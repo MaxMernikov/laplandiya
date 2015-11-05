@@ -29,6 +29,10 @@ module AdminHelper
       res += 'Отзывы'
     when 'modal'
       res += 'Модальные окна'
+    when 'kit_page'
+      res += 'Страница набора'
+    when 'recommendations'
+      res += 'Блок рекомендаций'
     end
     return res
   end

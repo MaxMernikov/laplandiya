@@ -1,5 +1,7 @@
 class KitsController < ApplicationController
   def show
+    set_meta('kit_page')
+    
     if cookies[:recently_viewed].present?
       recently_viewed = JSON.parse(cookies[:recently_viewed])
       cookies[:recently_viewed] = JSON.generate( recently_viewed.push(params[:id]).uniq )

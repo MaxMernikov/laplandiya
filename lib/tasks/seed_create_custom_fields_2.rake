@@ -85,6 +85,18 @@ task seed_create_custom_fields_2: :environment do
   key = 'recommendations'
   CustomField.create(page_type: 'recommendations', title: "Наборы для блока рекомендации", key: key, value: "1123, 2123, 2132", field_type: "array", pos: 0) unless CustomField.find_by(key: key)
 
+  key = 'index_banner'
+  CustomField.create(page_type: 'index', title: "Текст для баннера", key: key, value: '<span style="color:#28559d">АКЦИЯ!&nbsp;ДО </span><span style="color:#be151b">29 СЕНТЯБРЯ</span><br /><span style="color:#28559d">СКИДКА&nbsp;</span><span style="color:#be151b">10%</span><span style="color:#28559d">&nbsp;НА НАБОРЫ 3,5 КГ</span>', field_type: "ckeditor", pos: 3) unless CustomField.find_by(key: key)
+
+  key = 'meta_title_kit_page'
+  CustomField.create(page_type: 'kit_page', title: "Meta Title", key: key, value: "", field_type: "string", pos: 97) unless CustomField.find_by(key: key)
+
+  key = 'meta_keywords_kit_page'
+  CustomField.create(page_type: 'kit_page', title: "Meta Keywords", key: key, value: "", field_type: "string", pos: 98) unless CustomField.find_by(key: key)
+
+  key = 'meta_description_kit_page'
+  CustomField.create(page_type: 'kit_page', title: "Meta Description", key: key, value: "", field_type: "string", pos: 99) unless CustomField.find_by(key: key)
+
   ap "CustomField create"
 
 end
