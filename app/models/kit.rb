@@ -26,6 +26,19 @@ class Kit < ActiveRecord::Base
     end
   end
 
+  def self.packings_check(packing)
+    packing.weights.each do |weight|
+      Kit.where(weight_id: weight.id).each do |kit|
+        KitsPacking.find_or_create_by(kit_id: kit.id, packing_id: packing.id)
+      end
+    end
+
+    weight_ids = packing.weights.ids
+    KitsPacking.where(packing_id: packing).each do |kp|
+      kp.destroy if weight_ids.exclude? kp.kit.weight.id
+    end
+  end
+
   def sweets_count
     self.kits_sweets.pluck(:count).sum
   end

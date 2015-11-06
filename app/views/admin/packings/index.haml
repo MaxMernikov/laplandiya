@@ -10,6 +10,7 @@
         %th= I18n.t('activerecord.attributes.packing.code')
         %th= I18n.t('activerecord.attributes.packing.show')
         %th= I18n.t('activerecord.attributes.packing.image')
+        %th= I18n.t('activerecord.attributes.packing.material')
         %th
     %tbody
       - collection.each do |col|
@@ -17,6 +18,7 @@
           %td= col.code
           %td= boolean_tag col.show
           %td= image_tag(col.image, style: 'max-height: 200px')
+          %td= col.material
           %td
             .pull-right.controls
               = link_to 'edit', edit_resource_url(col), class: 'btn btn-default'

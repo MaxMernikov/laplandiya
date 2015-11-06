@@ -2,6 +2,10 @@
   = f.label :code
   = f.text_field :code, class: 'form-control'
 
+.form-group
+  = f.label :material
+  = f.text_area :material, class: 'form-control'
+
 = collection_check_boxes :packing, :weight_ids, Weight.ordered, :id, :title do |b|
   .checkbox= b.label { b.check_box(class: 'checkbox') + b.text  }
 
