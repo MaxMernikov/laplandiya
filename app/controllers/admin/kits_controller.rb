@@ -22,7 +22,7 @@ class Admin::KitsController < Admin::BaseController
           cost = kp.cost.to_f * percent
         end
 
-        kp.update_column(:cost, cost)
+        kp.update_column(:cost, cost) if cost
       end
     end
 
