@@ -8,8 +8,8 @@
             - if kit
               .tab-pane{ class: "#{'active' if @composition.id == composition.id} js-slide-#{index}"}
                 .kit-image
-                  - discount = kit.kits_packings.find_by(packing_id: @packing.id).discount
-                  - if discount > 0
+                  - discount = kit.kits_packings.find_by(packing_id: @packing.id).try(:discount)
+                  - if discount && discount > 0
                     .composition-discount
                       %i.is.icons-discount
                       .discount #{ discount }%
