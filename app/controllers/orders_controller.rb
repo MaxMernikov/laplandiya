@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        NotificationMailer.order_created(@order.id).deliver
         format.html { redirect_to root_path, notice: 'Client was successfully created.' }
         format.js { render json: [{ status: 'success' }] }
       else

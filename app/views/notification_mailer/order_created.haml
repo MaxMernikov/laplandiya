@@ -1,0 +1,16 @@
+%h2 Получен заказ
+%p
+  Имя:
+  %b= @order.user_name
+
+%p
+  Телефон:
+  %b= @order.phone
+
+%p
+  Просмотренные позиции:
+  %b= @order.recently_viewed.join(', ')
+
+%p
+  Дата:
+  %b= time_tag @order.created_at
