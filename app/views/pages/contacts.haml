@@ -4,8 +4,8 @@
   .line
   .container
     .row
-      .col-md-6.col-md-offset-3.text-center
-        .title
+      .col-md-6.col-md-offset-3
+        .title.text-center
           = custom('contacts_title')
           
         - if custom?('velcom_phone')
@@ -33,7 +33,7 @@
             %i.is.icons-email-black
             = custom_phone
 
-        .address
+        .address.text-center
           %i.is.icons-marker
           = custom('contacts_address')
           
