@@ -30,12 +30,12 @@
                     .composition-link-text
                       ОТКРЫТЬ >
 
-  .row.up-1
+  .row.up-1.hidden-xs
     .col-md-12.text-center
       .composition-label
         .composition-label-text СОСТАВ:
 
-  .row
+  .row.hidden-xs
     - Composition.all.each do |composition|
       .col-xs-4.text-center
         - kit = composition.kits.find_by(weight_id: weight.id, show: true)
