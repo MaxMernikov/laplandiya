@@ -3,9 +3,10 @@
   .row
     .col-md-12.weight-menu
       %ul.nav
+        - active_menu = cookies['active_menu'] || 2
         - @weights.each_with_index do |weight, index|
-          %li{ class: ('active' if index == 2) }
-            = link_to "#slide-#{index}", class: "weight-menu-item", data: { toggle: "tab" } do
+          %li{ class: ('active' if index == active_menu.to_i) }
+            = link_to "#slide-#{index}", class: "weight-menu-item js-click-memory", data: { toggle: "tab", memory: index } do
               .title= weight.title
               .cost
                 - min_max = min_max_cost(weight)

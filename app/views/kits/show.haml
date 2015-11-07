@@ -61,7 +61,7 @@
     - kit = composition.kits.find_by(weight_id: @weight.id, show: true)
     - if kit
       .tab-pane{ class: "#{'active' if @composition.id == composition.id} js-slide-#{index}"}
-        .tr.container-fluid
+        .tr.container
           - SweetsCategory.ordered.each do |category|
             - sweets = kit.sweets.where(sweets_category_id: category.id)
             - if sweets.present?
