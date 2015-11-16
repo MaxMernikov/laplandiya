@@ -3,7 +3,7 @@ class NotificationMailer < ActionMailer::Base
 
   def feedback_created
     mail(
-      to: 'maxmernikov@gmail.com',
+      to: 'info@laplandiya.by',
       subject: "Пользователь оставил свой отзыв на laplandiya.by"
     )
   end
@@ -11,7 +11,7 @@ class NotificationMailer < ActionMailer::Base
   def order_created(order_id)
     @order = Order.find(order_id)
     mail(
-      to: 'maxmernikov@gmail.com',
+      to: 'info@laplandiya.by',
       subject: "Создан заказ на laplandiya.by"
     )
   end
