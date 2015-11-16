@@ -31,17 +31,17 @@
           .block-wrap
             - if custom?('velcom_phone')
               .phones-block-item
-                %i.is.icons-velcom-logo
+                %i.is.icons-velcom-logo.hidden-xs
                 = custom('velcom_phone')
 
             - if custom?('mts_phone')
               .phones-block-item
-                %i.is.icons-mts-logo
+                %i.is.icons-mts-logo.hidden-xs
                 = custom('mts_phone')
 
             - if custom?('phone')
               .phones-block-item
-                %i.is.icons-phone-logo
+                %i.is.icons-phone-logo.hidden-xs
                 = custom('phone')
 
         

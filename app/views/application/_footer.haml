@@ -1,5 +1,5 @@
 %footer.row
-  .col-sm-4.text-right
+  .col-sm-4.text-right.hidden-xs
     - if custom?('work_time')
       .work-time-block
         .block-wrap
@@ -9,7 +9,7 @@
               - custom('work_days').each do |day|
                 .day= day
 
-  .col-md-4.text-center
+  .col-md-4.text-center.hidden-xs
     .logo
       %i.is.icons-logo-footer
 

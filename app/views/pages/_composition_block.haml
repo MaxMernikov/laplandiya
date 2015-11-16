@@ -1,10 +1,10 @@
 .container.composition-block.tab-pane{ class: ('active' if index == 2), id: "slide-#{index}"}
   .row.up-2.js-height-1
-    - Composition.all.each do |composition|
+    - Composition.all.each_with_index do |composition, index|
       - kit = composition.kits.find_by(weight_id: weight.id, show: true)
-      .col-xs-4.text-center
+      .col-sm-4.text-center{ class: "#{'hidden-xs' if index > 0}" }
         - if kit
-          .composition-header
+          .composition-header.hidden-xs
             .composition-title= composition.title
             .composition-cost
               - costs = kit.kits_packings.pluck(:cost)
@@ -29,6 +29,7 @@
                       № #{code}
                     .composition-link-text
                       ОТКРЫТЬ >
+
 
   .row.up-1.hidden-xs
     .col-md-12.text-center
