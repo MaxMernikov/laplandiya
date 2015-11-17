@@ -1,9 +1,13 @@
-%header
+%header.navbar-default
   .container
     .row
       .col-xs-3.col-sm-4
         .visible-xs
-          \:)
+          .navbar-header
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
         .hidden-xs
           - if custom?('get_call')
             = link_to '#', class: 'get-call', "data-target" => "#getCallModal", "data-toggle" => "modal", :type => "button" do
@@ -53,3 +57,15 @@
                 .days
                   - custom('work_days').each do |day|
                     .day= day
+
+      .col-xs-12.visible-xs
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li{ class: "#{active_menu('pages', 'index')}" }
+              = link_to 'Главная', root_path
+            %li{ class: "#{active_menu('pages', 'delivery')}" }
+              = link_to 'Оплата и доставка', pages_delivery_path
+            %li{ class: "#{active_menu('pages', 'contacts')}" }
+              = link_to 'Контакты', pages_contacts_path
+            %li{ class: "#{active_menu('pages', 'opinions')}" }
+              = link_to 'Отзывы', opinions_path
