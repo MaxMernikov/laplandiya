@@ -33,7 +33,7 @@
     .row
       .col-md-2
       .col-md-8.text-center
-        = form_for Feedback.new, remote: true, class: 'js-form' do |f|
+        = form_for Feedback.new, remote: true, html: {class: 'js-form', data: {form: 'feedback', model: 'feedback'}}  do |f|
           .row
             .col-md-6
               .form-group

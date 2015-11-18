@@ -74,7 +74,7 @@
     .row
       .col-md-4
       .col-md-4.text-center
-        = form_for Order.new, remote: true, html: { class: 'js-form', data: {form: 'order'} } do |f|
+        = form_for Order.new, remote: true, html: { class: 'js-form', data: {form: 'order', model: 'order'} } do |f|
           .form-group
             = f.text_field :user_name, placeholder: 'Укажите ваше имя:', class: 'form-control input-lg'
 

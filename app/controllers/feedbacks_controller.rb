@@ -4,8 +4,8 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
 
     respond_to do |format|
-      ap format
       if @feedback.save
+        NotificationMailer.feedback_created(@feedback.id).deliver
         format.html { redirect_to opinions_path, notice: 'Client was successfully created.' }
         format.js { render json: [{ status: 'success' }] }
       else

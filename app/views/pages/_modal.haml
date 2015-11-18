@@ -34,7 +34,7 @@
       .modal-body
         = custom('modal_get_call_body')
         %br
-        = form_for Order.new, remote: true, html: { class: 'js-form', data: {form: 'getCallSuccess'} } do |f|
+        = form_for Order.new, remote: true, html: { class: 'js-form', data: {form: 'getCallSuccess', model: 'order'} } do |f|
           .form-group
             = f.text_field :user_name, placeholder: 'Укажите ваше имя:', class: 'form-control input-lg'
 

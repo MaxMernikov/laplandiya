@@ -8,6 +8,7 @@ $.fn.render_form_errors = (model_name, errors) ->
       if name
         name.match(new RegExp(model_name + '\\[' + field + '\\(?'))
     )
+    console.log input.addClass('dddd')
     input.closest('.form-group').addClass('has-error')
     input.parent().append('<span class="help-block">' + $.map(messages, (m) -> m.charAt(0).toUpperCase() + m.slice(1)).join('<br />') + '</span>')
   )
@@ -31,5 +32,5 @@ $ ->
     $('.modal').modal('hide')
     $('#' + $(this).data('form') + 'Modal').modal('show')
   ).on("ajax:error", (e, data, status, xhr) ->
-    $(".js-form").render_form_errors($(this).data('form'), JSON.parse(data.responseText))
+    $(".js-form[data-form='" + $(this).data('form') + "']").render_form_errors($(this).data('model'), JSON.parse(data.responseText))
   )
