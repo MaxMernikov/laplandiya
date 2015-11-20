@@ -8,7 +8,7 @@
           %li{ class: ('active' if index == active_menu.to_i) }
             = link_to "#slide-#{index}", class: "weight-menu-item js-click-memory", data: { toggle: "tab", memory: index } do
               .title= weight.title
-              .cost
+              .cost.hidden-xs
                 - min_max = min_max_cost(weight)
                 #{ min_max[:min] / 1000 } - #{ min_max[:max] / 1000 } т.
 
