@@ -12,6 +12,8 @@
     &:last-child
       border-right: 1px solid rgba(192, 192, 192, 0.28)
 
+
+
 .weight-menu-item
   display: inline-block
   width: 134px
@@ -51,3 +53,60 @@
     color: #1b4a97
     font-size: 16px
     line-height: 14px
+
+@media (min-width: 992px)
+  .weight-menu-item
+    width: 110px
+    .title
+      font-size: 22px
+      margin-top: 32px
+    .cost
+      margin-top: 19px
+
+    .active &, &:hover
+      position: relative
+      &:before
+        width: 124px
+        height: 138px
+        top: -8px
+        left: -9px
+
+@media (min-width: 768px)
+  .weight-menu
+    height: 94px
+  .weight-menu-item
+    width: 84px
+    .title
+      font-size: 16px
+      margin-top: 18px
+    .cost
+      margin-top: 6px
+      font-size: 13px
+
+    .active &, &:hover
+      position: relative
+      &:before
+        width: 98px
+        height: 104px
+        top: -8px
+        left: -9px
+
+@media (max-width: 768px)
+  .weight-menu
+    height: 94px
+  .weight-menu-item
+    width: 36px
+    .title
+      font-size: 16px
+      margin-top: 18px
+    .cost
+      margin-top: 6px
+      font-size: 13px
+
+    .active &, &:hover
+      position: relative
+      &:before
+        width: 98px
+        height: 104px
+        top: -8px
+        left: -9px
