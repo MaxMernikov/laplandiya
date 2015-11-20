@@ -12,19 +12,22 @@
         .col-md-8
           .opinion-time= time_tag opinion.date
           .opinion-text= opinion.opinion 
-      / .row
-      /   .col-md-2
-      /   .col-md-8
-      /     .opinion-answer
-      /       = opinion.answer
-      /       %br
-      /       %b С уважением, коллектив Laplandiya.by
-      /   .col-md-2
-      /     %i.is.icons-santa
 
-    .row
-      .col-md-12.text-center
-        = link_to 'Читать еще!', '#more', class: 'opinions-read-more'
+    
+    - if @more_opinions.present?
+      .row
+        .col-md-12.text-center
+          = link_to 'Читать еще!', '#more', class: 'opinions-read-more'
+
+    - @more_opinions.each do |opinion|
+      .row.opinion.hide.js-more-opinions
+        .col-md-1
+        .col-md-2.text-center
+          %i.is.icons-users
+          .opinion-user= opinion.user_name
+        .col-md-8
+          .opinion-time= time_tag opinion.date
+          .opinion-text= opinion.opinion 
 
 = render 'title_line', text: 'Оставить отзыв'
 
