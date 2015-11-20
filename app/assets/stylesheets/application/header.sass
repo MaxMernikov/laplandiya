@@ -31,6 +31,7 @@ header
 
 
   .phones-block
+    margin-right: 0
 
   .work-time-block
     margin-left: 28px
@@ -118,12 +119,19 @@ header
 
 
 @media (min-width: 992px)
+  header .work-time-block
+    margin-left: 4px
   .menu-element
     width: 66px
     &.left-side
       left: -71px
     &.right-side
       left: 66px
+
+@media (max-width: 991px)
+  header .phones-block
+    margin-right: -17px
+
 
 @media (min-width: 1200px)
   .menu-element
