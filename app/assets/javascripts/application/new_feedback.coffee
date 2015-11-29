@@ -30,6 +30,11 @@ $ ->
     $(".js-form").clear_form_fields()
 
     $('.modal').modal('hide')
+
+    if $(this).data('form') == 'getCallSuccess'
+      yaCounter33857649.reachGoal('zakazat_zvonok')
+      ga('send', 'event', 'zvonok', 'zakazat')
+
     $('#' + $(this).data('form') + 'Modal').modal('show')
   ).on("ajax:error", (e, data, status, xhr) ->
     $(".js-form[data-form='" + $(this).data('form') + "']").render_form_errors($(this).data('model'), JSON.parse(data.responseText))
